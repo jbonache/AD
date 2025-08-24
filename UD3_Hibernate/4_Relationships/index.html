@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -55,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1632,7 +1643,7 @@
 <p>From now, we could study all representations with JPA</p>
 <h1 id="2-one-to-one-relationships">2. One to One Relationships</h1>
 <p>For the explanation of the examples, we will see the design and implementation in the database of each case and how it looks in Hibernate. For this example we are going to represent a 1:1 relationship between Group and Teacher, whereas you can see that a Group has a Tutor, and a Tutor only could tutoring one Group.</p>
-<p><img alt="one_to_one" src="../img/1_1.png" width="90%" /></p>
+<p><a class="glightbox" href="../img/1_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="one_to_one" src="../img/1_1.png" width="90%" /></a></p>
 <p>Firstly, the class that is pointed by the foreign key. Easy-peasy, because we do not need nothing to do.</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
@@ -1768,7 +1779,7 @@ Notice that Group class contains a field called <code>tutor</code> of <code>Prof
 <p>With <code>mappedBy="tutor"</code> we are saying that in <code>Grupo</code> class exists a field called <code>tutor</code> with the whole information about the relation. Notice that no extra fields will beb added in Profesor, because information about the relation is in Group table.</p>
 <h1 id="3-one-to-many">3. One to Many</h1>
 <p>For this explanation we will start from the following model, in which a <strong>Book</strong> has an <strong>Author</strong> who has written it, and an Author may have written several Books. In the relational schema, the relationship is from <code>idAuthor</code> in Books, which is foreign key to the Author table (ID).</p>
-<p><img alt="one_to_many" src="../img/1_N.png" width="90%" /></p>
+<p><a class="glightbox" href="../img/1_N.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="one_to_many" src="../img/1_N.png" width="90%" /></a></p>
 <p>First, we can decide who is the owner of the relation. It really does not mind, but in several designs it is very clear, for instance between <code>Student</code> and <code>Email</code>, who obviously the owner is <code>Student</code>. Normally should be the class with <strong>many</strong> cardinality the owner. Let's go with the sample.</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
@@ -1868,7 +1879,7 @@ Notice that Group class contains a field called <code>tutor</code> of <code>Prof
 <div class="admonition important">
 <p class="admonition-title">Espai</p>
 <p>The <code>1:N</code> that we have explained is bidirectional relation. It means that from an Author we can get all the Books he/she has written, and from a Book we can get the Author.</p>
-<p><img alt="one_to_many_bidirectional" src="../img/1_N_B.png" width="90%" /></p>
+<p><a class="glightbox" href="../img/1_N_B.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="one_to_many_bidirectional" src="../img/1_N_B.png" width="90%" /></a></p>
 <p>You could find several pages and books who explain unidirectional <code>1:N</code> relations. It means that with this kind of implementation we only can travel in one direction. In this case we must store only inside a Book who is the author, because Book is the owner. We must remove the Set of books in author to get an unidirectional relation.</p>
 </div>
 <h2 id="31-fetch-type">3.1. Fetch type</h2>
@@ -1897,7 +1908,7 @@ Notice that Group class contains a field called <code>tutor</code> of <code>Prof
 <p>For the second part, this tutorial explains how to do it <a href="https://thorben-janssen.com/hibernate-tip-many-to-many-association-with-additional-attributes/">N_M with attributes</a>. Is very recommmended to implement it a sample.</p>
 </div>
 <p>We are going to model the typical case of a Teacher who teaches several Modules, which can be taught by several teachers. The scheme looks like below:</p>
-<p><img alt="many to many" src="../img/N_M.png" width="90%" /></p>
+<p><a class="glightbox" href="../img/N_M.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="many to many" src="../img/N_M.png" width="90%" /></a></p>
 <p>As we can see, the typical central table of the <code>N:M</code> relationship remains. As previously mentioned, the Teaching table will not exist in the OO model, since it only serves to relate the elements.</p>
 <p>The Module and Teacher classes are as follows (only the part related to the relationship is shown) choosing in this case Teacher as the owner of the relationship:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
@@ -2116,5 +2127,7 @@ Notice that Group class contains a field called <code>tutor</code> of <code>Prof
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

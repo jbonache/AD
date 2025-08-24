@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -55,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -74,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#continguts-del-modul-unitats-didactiques-actualitzar" class="md-skip">
+        <a href="#continguts-del-modul-unitats-didactiques" class="md-skip">
           Skip to content
         </a>
       
@@ -370,8 +381,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -404,8 +413,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -414,9 +421,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#continguts-del-modul-unitats-didactiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continguts del mòdul. Unitats didàctiques
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#continguts-per-unitat" class="md-nav__link">
     <span class="md-ellipsis">
       Continguts per unitat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temporalitzacio-de-continguts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporalització de continguts
     </span>
   </a>
   
@@ -1643,8 +1668,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1653,9 +1676,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#continguts-del-modul-unitats-didactiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continguts del mòdul. Unitats didàctiques
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#continguts-per-unitat" class="md-nav__link">
     <span class="md-ellipsis">
       Continguts per unitat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temporalitzacio-de-continguts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporalització de continguts
     </span>
   </a>
   
@@ -1677,7 +1718,9 @@
 
 
 
-<h1 id="continguts-del-modul-unitats-didactiques-actualitzar">Continguts del mòdul. Unitats didàctiques <strong>ACTUALITZAR!!</strong></h1>
+  <h1>Continguts</h1>
+
+<h2 id="continguts-del-modul-unitats-didactiques">Continguts del mòdul. Unitats didàctiques</h2>
 <p>Els continguts del mòdul s'organitzen en les següents unitats didàctiques:</p>
 <ul>
 <li><strong>UD1</strong>. Fitxers.</li>
@@ -1688,12 +1731,12 @@
 <li><strong>UD6</strong>. Accés a bases de dades NoSQL amb MongoDB.</li>
 </ul>
 <p>Cadascuna d'aquestes unitats està associada a un resultat d'aprenentatge:</p>
-<p><img alt="RRAA i CCAA per unitats" src="../../../Presentacio/img/RA-UD-CR.png" width="500px" /></p>
+<p><a class="glightbox" href="../../../Presentacio/img/RA-UD-CR.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="RRAA i CCAA per unitats" src="../../../Presentacio/img/RA-UD-CR.png" width="500px" /></a></p>
 <h2 id="continguts-per-unitat">Continguts per unitat</h2>
 <p>Els continguts, segons el RD del títol, per cada unitat seran:</p>
 <ul>
 <li>
-<p><strong>UD1</strong>. Fitxers.</p>
+<p><strong>UD1. Fitxers.</strong></p>
 <ul>
 <li>C1.1. Classes associades a les operacions de gestió de fitxers i directoris: creació, esborrat, còpia, moviment, recorregut, entre altres.  </li>
 <li>C1.2. Formes d’accés a un fitxer. Avantatges.  </li>
@@ -1706,7 +1749,7 @@
 </ul>
 </li>
 <li>
-<p><strong>UD2</strong>. Connectors.</p>
+<p><strong>UD2. Connectors.</strong></p>
 <ul>
 <li>C2.1. El desfasament objecte-relacional.  </li>
 <li>C2.2. Protocols d’accés a bases de dades. Connectors.  </li>
@@ -1720,7 +1763,7 @@
 </ul>
 </li>
 <li>
-<p><strong>UD3</strong>. Hibernate</p>
+<p><strong>UD3. Hibernate</strong></p>
 <ul>
 <li>C3.1. Concepte de mapatge objecte relacional.  </li>
 <li>C3.2. Característiques de les ferramentes ORM. Ferramentes ORM més utilitzades.  </li>
@@ -1736,7 +1779,7 @@
 </ul>
 </li>
 <li>
-<p><strong>UD4</strong>. Bases de Dades Orientades a Objectes.</p>
+<p><strong>UD4. Bases de Dades Orientades a Objectes.</strong></p>
 <ul>
 <li>C4.1. Gestors de bases de dades objecte relacionals. Característiques. Avantatges.  </li>
 <li>C4.2. Gestió d’objectes amb SQL; ANSI SQL.  </li>
@@ -1749,7 +1792,7 @@
 </ul>
 </li>
 <li>
-<p><strong>UD5</strong>. Spring Framework.</p>
+<p><strong>UD5. Spring Framework.</strong></p>
 <ul>
 <li>C5.1. Introducció a Spring.  </li>
 <li>C5.2. Establiment i tancament de connexions des de Spring.  </li>
@@ -1759,7 +1802,7 @@
 </ul>
 </li>
 <li>
-<p><strong>UD6</strong>. Accés a bases de dades NoSQL amb MongoDB</p>
+<p><strong>UD6. Accés a bases de dades NoSQL amb MongoDB</strong></p>
 <ul>
 <li>C6.1. Bases de dades documentals natives. Característiques. Avantatges.  </li>
 <li>C6.2. Establiment i tancament de connexions.  </li>
@@ -1773,9 +1816,10 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">En resum... què anem a vore en el mòdul?</p>
-<p>Aquest és un mòdul bastant divers, on veiem moltes de les eines associades al desenvolupament de programari en general, com puguen ser els editors de codi, els sistemes de control de versions, eines per realitzar proves, documentar projectes, i ajudar-nos a modelar les nostres aplicacions seguint patrons de disseny que ens ajuden a resoldre els problemes.</p>
+<p>Aquest és un mòdul on veiem com les aplicacions guarden i recuperen informació. Primer treballarem amb fitxers, després aprendrem a connectar-nos a bases de dades amb JDBC. Veurem eines més potents com Hibernate i Spring Data JPA, que faciliten molt la feina amb les bases de dades relacionals. I, finalment coneixerem MongoDB, una base de dades NoSQL que guarda documents en lloc de taules i com es poden accedir i manipular des de Spring.</p>
 </div>
-<h1 id="temporalitzacio-de-continguts">Temporalització de continguts</h1>
+<h2 id="temporalitzacio-de-continguts">Temporalització de continguts</h2>
+<p><strong>Pendent d'incloure planificació metodologia ABP</strong></p>
 <p>La temporalització de continguts prevista serà la següent:</p>
 <table>
 <thead>
@@ -1864,5 +1908,7 @@
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

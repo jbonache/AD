@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -55,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1870,7 +1881,7 @@ Notice that Group class contains a field called <code>tutor</code> of <code>Prof
 <div class="admonition important">
 <p class="admonition-title">Espai</p>
 <p>The <code>1:N</code> that we have explained is bidirectional relation. It means that from an Author we can get all the Books he/she has written, and from a Book we can get the Author.</p>
-<p><center><img alt="one_to_many_bidirectional" src="../../../UD3_Hibernate/img/1_N_B.png" width="90%" /></center></p>
+<p><center><a class="glightbox" href="../../../UD3_Hibernate/img/1_N_B.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="one_to_many_bidirectional" src="../../../UD3_Hibernate/img/1_N_B.png" width="90%" /></a></center></p>
 <p>You could find several pages and books who explain unidirectional <code>1:N</code> relations. It means that with this kind of implementation we only can travel in one direction. In this case we must store only inside a Book who is the author, because Book is the owner. We must remove the Set of books in author to get an unidirectional relation.</p>
 </div>
 <h2 id="31-fetch-type">3.1. Fetch type</h2>
@@ -2119,5 +2130,7 @@ Notice that Group class contains a field called <code>tutor</code> of <code>Prof
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

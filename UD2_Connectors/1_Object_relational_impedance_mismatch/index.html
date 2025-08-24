@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -55,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1773,7 +1784,7 @@
 </div>
 <h3 id="111-exemple">1.1.1. Exemple</h3>
 <p>Una base de dades per emmagatzemar informació sobre jugadors, jocs, etc., pot ser així:</p>
-<p><img alt="Entity-Relationship" src="../img/E_R.png" width="90%" /></p>
+<p><a class="glightbox" href="../img/E_R.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Entity-Relationship" src="../img/E_R.png" width="90%" /></a></p>
 <p>Implementada amb el SGBD <code>MySQL</code>:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SQL</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
@@ -1887,7 +1898,7 @@
 <li>Un objecte es diu que és una <strong>instància</strong> d'una classe.</li>
 </ul>
 <p>El mateix exemple que hem representat recentment, amb una representació orientada a objectes podria ser:</p>
-<p><img alt="Orientació a Objectes" src="../img/O_O.png" width="90%" /></p>
+<p><a class="glightbox" href="../img/O_O.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Orientació a Objectes" src="../img/O_O.png" width="90%" /></a></p>
 <p>Com podem veure, té una estructura similar, a la qual també hem afegit alguns mètodes com ara getters i setters. A més, les diferents classes no tenen un atribut identificador, ja que cada objecte s'identifica a si mateix. Aquí tenim una petita aproximació de com implementaríem aquesta jerarquia en Java.</p>
 <p>La classe <code>Genere</code> és una classe POJO, que només emmagatzema informació (nom i descripció del tipus de joc) i implementa getters i setters.</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
@@ -2137,5 +2148,7 @@
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

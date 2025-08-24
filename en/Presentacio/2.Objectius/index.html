@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -55,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1656,12 +1667,12 @@
 </tbody>
 </table>
 <h1 id="resultats-daprenentatge-i-criteris-davaluacio">Resultats d'aprenentatge i criteris d'avaluació</h1>
-<p><img alt="RA - Criteris" src="../../../Presentacio/img/RA1_CA.png" />
-<img alt="RA - Criteris" src="../../../Presentacio/img/RA2_CA.png" />
-<img alt="RA - Criteris" src="../../../Presentacio/img/RA3_CA.png" />
-<img alt="RA - Criteris" src="../../../Presentacio/img/RA4_CA.png" />
-<img alt="RA - Criteris" src="../../../Presentacio/img/RA5_CA.png" />
-<img alt="RA - Criteris" src="../../../Presentacio/img/RA6_CA.png" /></p>
+<p><a class="glightbox" href="../../../Presentacio/img/RA1_CA.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="RA - Criteris" src="../../../Presentacio/img/RA1_CA.png" /></a>
+<a class="glightbox" href="../../../Presentacio/img/RA2_CA.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="RA - Criteris" src="../../../Presentacio/img/RA2_CA.png" /></a>
+<a class="glightbox" href="../../../Presentacio/img/RA3_CA.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="RA - Criteris" src="../../../Presentacio/img/RA3_CA.png" /></a>
+<a class="glightbox" href="../../../Presentacio/img/RA4_CA.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="RA - Criteris" src="../../../Presentacio/img/RA4_CA.png" /></a>
+<a class="glightbox" href="../../../Presentacio/img/RA5_CA.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="RA - Criteris" src="../../../Presentacio/img/RA5_CA.png" /></a>
+<a class="glightbox" href="../../../Presentacio/img/RA6_CA.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="RA - Criteris" src="../../../Presentacio/img/RA6_CA.png" /></a></p>
 <h1 id="mho-pots-explicar-millor">M'ho pots explicar millor?</h1>
 <p>La formació professional (FP) està dissenyada per preparar-vos per al món laboral, aportant-vos coneixements teòrics, i sobretot pràctics.</p>
 <p>Cada mòdul formatiu cobreix un aspecte específic relacionat amb la vostra futura professió, i es divideix en diversos <strong><em>Resultats d'aprenentatge</em></strong>. És a dir... què heu de <em>saber fer</em> després de passar pel mòdul.</p>
@@ -1758,5 +1769,7 @@
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
