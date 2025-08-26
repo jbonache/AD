@@ -84,6 +84,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1-introduction" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1017,6 +1022,19 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Introduccio a les bases de dades OO
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1028,6 +1046,41 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-object-relational-dbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Object Relational DB's
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1459,120 +1512,6 @@
   
   
   
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
-        
-          
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Pràctiques
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            Pràctiques
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 1
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC2/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 2
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC3/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 3
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../license/" class="md-nav__link">
         
@@ -1607,6 +1546,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-object-relational-dbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Object Relational DB's
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1623,7 +1588,23 @@
 
   <h1>Introduccio a les bases de dades OO</h1>
 
-
+<h2 id="1-introduction">1. Introduction</h2>
+<p>The Relational Databases arise from the relational model as a system that faithfully represents reality, with great solidity due to the underlying relational logic. Said model represents the static perspective of the modeling of the application, and in it all the data is broken down to atomic levels, since as we remember, neither multivalued nor composite values are allowed.</p>
+<p>This model has suffered from the object-relational gap, in which programming languages evolved structures by adopting the object-oriented methodology. This causes us to design the database on the one hand, following the relational model, and we also need to design the application classes on the other hand. Said designs, which do not usually coincide, can be <em>fitted</em> with the ORM tools studied in the previous unit to mitigate the object-relational mismatch.</p>
+<p>From this gap arises the need to add a more object-oriented design within the database itself. If we analyze an object-oriented scheme and try to apply normalization theory, we will find that the objects are <em>decomposed</em> into several entities, which causes many tables to appear.</p>
+<p>This high number of tables causes, as a consequence, an increase in the references between them, considerably increasing the relationships between them and, therefore, a greater number of restrictions that you control (FOREIGN KEY), which means an increase in the number of checks to be carried out by the DBMS.</p>
+<p>Thus, in the <strong>OO BD</strong> (<em>Object-Oriented Database</em>) it allows a definition of complex data types compared to the simple ones that the RDBMS incorporates, allowing the definition of structured and even multivalued types. With all this, the OO BD should simply allow design through objects (similar to the UML) indicating the objects that participate, indicating their attributes and methods, and the relationships that affect them, and obviously, inheritances.</p>
+<p>These OO DB's have not yet taken off, and some solutions that commercial solutions implement is to provide the relational database system with the semantic capabilities of object orientation, thus appearing the BDOR (Object-Relational Databases).</p>
+<h2 id="2-object-relational-dbs">2. Object Relational DB's</h2>
+<p>The ANSI SQL1999 standard (SQL99 and later SQL2003), as a continuation of SQL92 in which the characteristics of the relational model are adapted, allows adding object-oriented characteristics to the Relational Databases. This allows robust DBMS to have <em>adopted</em> and implemented those features required. Among these features are:</p>
+<ul>
+<li>Definition of new types of data by the user.</li>
+<li>Adaptation to accommodate large binary data types such as images and documents.</li>
+<li>Ability to store compound elements as arrays.</li>
+<li>Directly store references to other tables.</li>
+<li>Defining objects and inheritance.</li>
+<li>Definition of functions that handle the previously defined structures</li>
+</ul>
 
 
 

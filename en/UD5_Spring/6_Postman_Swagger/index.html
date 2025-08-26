@@ -84,6 +84,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#appendix-postman" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1246,6 +1251,19 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Test. Postman i Swagger
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1257,6 +1275,41 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-postman" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appendix: Postman.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apendix-2-swagger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apèndix 2: Swagger
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1459,120 +1512,6 @@
   
   
   
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
-        
-          
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Pràctiques
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            Pràctiques
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 1
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC2/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 2
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC3/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 3
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../license/" class="md-nav__link">
         
@@ -1607,6 +1546,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-postman" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appendix: Postman.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apendix-2-swagger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apèndix 2: Swagger
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1623,7 +1588,54 @@
 
   <h1>Test. Postman i Swagger</h1>
 
+<h2 id="appendix-postman">Appendix: Postman.</h2>
+<p>This is free software and, through Postman we can make requests:</p>
+<ul>
+<li>GET, to a route, indicating the parameters in all their possibilities, in the Query of the route, as identifiers in the route.</li>
+<li>POST and PUT, allowing in a very comfortable way to edit the JSON objects in the body (Body) of the request</li>
+<li>DELETE, to carry out deletions.</li>
+</ul>
+<p>Let's see how we can work with the queries to our newly created API. The first step to take is to create a workspace or Workspace, where we will add our requests</p>
+<p><a class="glightbox" href="../../../UD5_Spring/img/Postman_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Postman_1" src="../../../UD5_Spring/img/Postman_1.png" width="95%" /></a></p>
+<p>Then, we could start to create <code>http_request</code>: </p>
+<p><a class="glightbox" href="../../../UD5_Spring/img/Postman_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Postman_2" src="../../../UD5_Spring/img/Postman_2.png" width="95%" /></a></p>
+<p>we could change the request type in the left selector:</p>
+<p><a class="glightbox" href="../../../UD5_Spring/img/Postman_4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Postman_4" src="../../../UD5_Spring/img/Postman_4.png" width="95%" /></a></p>
+<p>we could set parameters adding <code>?name=value</code> in the request</p>
+<p><a class="glightbox" href="../../../UD5_Spring/img/Postman_6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Postman_6" src="../../../UD5_Spring/img/Postman_6.png" width="95%" /></a></p>
+<p>And we can set values of variables in the path simply adding to the request (as a text in the path). Remember that this correspond with <code>PathVariable</code>.</p>
+<p><a class="glightbox" href="../../../UD5_Spring/img/Postman_7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Postman_7" src="../../../UD5_Spring/img/Postman_7.png" width="95%" /></a></p>
+<p>If we want to send data, in form of JSON object, as forms do, we must set up inside body as <code>raw</code> data as json in a POST or PUT request:</p>
+<p><a class="glightbox" href="../../../UD5_Spring/img/Postman_8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Postman_8" src="../../../UD5_Spring/img/Postman_8.png" width="95%" /></a></p>
+<p><a class="glightbox" href="../../../UD5_Spring/img/Postman_10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Postman_10" src="../../../UD5_Spring/img/Postman_10.png" width="95%" /></a></p>
+<p>Finally, here you have a <code>DELETE</code> request:</p>
+<p><a class="glightbox" href="../../../UD5_Spring/img/Postman_11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Postman_11" src="../../../UD5_Spring/img/Postman_11.png" width="95%" /></a></p>
+<!--
+\begin{center}
+\begin{minipage}{0.99\textwidth}
+\includegraphics[width=0.99\columnwidth]{./img/ObjectStatus.png}
+\end{minipage}
+\end{center}
 
+https://www.baeldung.com/spring-data-jpa-pagination-sorting
+https://spring.io/projects/spring-hateoas#samples
+https://spring.io/guides/tutorials/rest/
+https://www.baeldung.com/spring-boot-bean-validation
+
+Completissim curs de JWT (Amb exemple de projecte amb MongoDB i tot)
+https://www.toptal.com/spring/spring-security-tutorial
+
+<https://medium.com/geekculture/implementing-json-web-token-jwt-authentication-using-spring-security-detailed-walkthrough-1ac480a8d970>
+
+<https://www.bezkoder.com/spring-boot-jwt-authentication/>
+
+<https://www.javainuse.com/spring/boot-jwt>
+
+
+-->
+
+<h2 id="apendix-2-swagger">Apèndix 2: Swagger</h2>
+<p>In this webpage <a href="https://www.baeldung.com/spring-rest-openapi-documentation">https://www.baeldung.com/spring-rest-openapi-documentation</a> you can find how to add en emmbedded API test pages to work with the API you are generating easily.</p>
 
 
 

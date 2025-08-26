@@ -1605,120 +1605,6 @@
   
   
   
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
-        
-          
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Pràctiques
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            Pràctiques
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 1
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC2/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 2
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC3/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 3
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../license/" class="md-nav__link">
         
@@ -1889,11 +1775,13 @@
   <h1>Introduccio a Hibernate</h1>
 
 <h2 id="1-hibernate">1. Hibernate</h2>
-<p><a class="glightbox" href="../img/Hibernate.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Hibernate" src="../img/Hibernate.png" width="85%" /></a></p>
+<center>![Hibernate](./img/Hibernate.png){width=85%}</center>
+
 <p><a href="https://hibernate.org">Hibernate</a> és un framework ORM per a Java, que facilita la correspondència d'atributs entre una base de dades relacional i el model d'objectes de la nostra aplicació mitjançant fitxers XML o anotacions en els beans d'entitat. És un programari lliure distribuït sota la llicència GPL 2.0, per la qual cosa es pot utilitzar en aplicacions comercials.</p>
 <p>La funció principal de Hibernate serà oferir a l'programador les eines per detallar el seu model de dades i les relacions entre ells, de manera que sigui l'ORM mateix el que interactuï amb la base de dades, mentre que el desenvolupador es dedica a manipular objectes.</p>
 <p>A més, ofereix un llenguatge de consulta, anomenat HQL (Hibernate Query Language), de manera que sigui l'ORM mateix el que tradueixi aquest llenguatge al de cada motor de base de dades, mantenint així la portabilitat a costa d'un lleuger augment en el temps d'execució.</p>
-<p><a class="glightbox" href="../img/Hibernate-arquitecture.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Hibernate" src="../img/Hibernate-arquitecture.png" width="85%" /></a></p>
+<center>![Hibernate](./img/Hibernate-arquitecture.png){width=85%}</center>
+
 <p>Quan es creen objectes, aquests són volàtils o temporals (es destruiran quan l'aplicació finalitzi). Quan volem emmagatzemar-los amb Hibernate, són rastrejats amb un mecanisme anomenat <code>Session</code>. També es rastrejen els objectes carregats des de les bases de dades. Si ho desitgem, podem finalitzar el rastreig, eliminant l'objecte quan ja no el necessitem.</p>
 <p>A més, es proporciona un llenguatge de consulta, HQL o <strong>Hibernate Query Language</strong>, basat en OQL. La part subjacent de la sessió, com es pot veure, permet l'ús de diverses tecnologies, incloent JDBC per connectar-se al SGBD necessari.</p>
 <h2 id="2-configuracio">2. Configuració</h2>

@@ -84,6 +84,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1-introduction-data-access-services" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1131,6 +1136,19 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Serveis d'Acces a Dades
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1142,6 +1160,50 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-data-access-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction. Data Access Services
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-mvc" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. MVC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. REST
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1459,120 +1521,6 @@
   
   
   
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
-        
-          
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Pràctiques
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            Pràctiques
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 1
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC2/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 2
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC3/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 3
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../license/" class="md-nav__link">
         
@@ -1607,6 +1555,41 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-data-access-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction. Data Access Services
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-mvc" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. MVC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. REST
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1623,7 +1606,32 @@
 
   <h1>Serveis d'Acces a Dades</h1>
 
-
+<h2 id="1-introduction-data-access-services">1. Introduction. Data Access Services</h2>
+<p>A <strong>servlet</strong> is an application that runs on an server, prepared to respond to <em>http requests</em>. Later we have <strong>JSP</strong> (Java Server Pages), which allow combining <em>HTML/XML</em> elements with <em>Java code</em> fragments to generate content dynamically. We must launch an application server and add the application to run it and serve it as another page.</p>
+<p>We can use Servlets to write a web application, but there are many intrinsic details to control: validation, REST, request / response body for JSON, form binding, etc. This implies that much of our code is devoted to controlling the lower layers of communication.</p>
+<p>With the Spring <strong>framework</strong>, it really uses servlets, but it frees the programmer from such a <em>heavy</em> task, managing it automatically. This allows the user to focus on the logic of the application, without having to manage the lower levels of communications. In addition, Spring Boot is defined as a Spring accelerator, allowing us to indicate a series of conventions (behaviors) that perform heavy file configuration tasks for us. Finally, Spring Boot incorporates an embedded web server (usually <code>Tomcat</code>)</p>
+<p>The term framework or if we try to force its translation into Spanish <em>Marco de trabajo</em> provides us with a set of rules and tools designed to increase the speed of application development</p>
+<h2 id="2-mvc">2. MVC</h2>
+<p>The Model View Controller (MVC) is an architecture for application development that separates data, interface, and control logic into layers.</p>
+<p><a class="glightbox" href="../../../UD5_Spring/img/MVC.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="MVC" src="../../../UD5_Spring/img/MVC.png" width="95%" /></a></p>
+<p>The operation is as follows:</p>
+<ol>
+<li>The user is using the client application (usually a browser or client), and makes a request through the <strong>http protocol</strong>, also known as an <strong>HTTP_REQUEST</strong>. These requests are received by the <strong>controller module</strong>. The controller manages a list of operations or events that it can process, determined by its own protocol.</li>
+<li>In the case of a request that requests a query or modification of the data, we pass the parameters provided in the request to the <strong>model layer</strong>. This layer accesses the data, performing steps 3 and 4 through DBMS operations. The Model is now in a position to give an answer.</li>
+<li>Consult the database.</li>
+<li>Database query recovery.</li>
+<li>The model transfers the obtained result set to the view.</li>
+<li>The view is responsible for receiving the data and presenting or formatting it appropriately.</li>
+<li>The controller returns the presentation generated by the view (which will typically be dynamic HTML) to the client application, via the <strong>HTTP_RESPONSE</strong> request.</li>
+</ol>
+<h2 id="3-rest">3. REST</h2>
+<p>The <strong>REST</strong> (<strong>Representational State Transfer</strong>) model allows us to provide our server with a service to easily retrieve and manipulate data on the server. In this model, the part of the view is delegated to the client, leaving the controller and the model on the server. In this model, we will highlight among others:</p>
+<ul>
+<li>The protocol follows the <strong>stateless client/server</strong> model, just like http, a request will only respond according to the information received in the same request.</li>
+<li>Support of CRUD operations, through the equivalent http specifications: <strong>GET</strong> (query), <strong>POST</strong> (create), <strong>PUT</strong> (modify) and <strong>DELETE</strong> (delete)</li>
+<li>Arrangement of the <strong>HATEOAS</strong> model (<strong>Hypermedia As Engine Of The Application State</strong>). This principle allows hyperlinks as a resources to be included in responses.</li>
+</ul>
+<p>In MVC, and in a simplified way, it would be to remove the layer from the view and return the data processed by the model. Usually REST servers return data in JSON format</p>
 
 
 

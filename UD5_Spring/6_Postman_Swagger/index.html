@@ -84,6 +84,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#apendix-1-postman" class="md-skip">
+          Salta el contingut
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1246,6 +1251,19 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Test. Postman i Swagger
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1257,6 +1275,41 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#apendix-1-postman" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apèndix 1: Postman.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apendix-2-swagger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apèndix 2: Swagger
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1459,120 +1512,6 @@
   
   
   
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
-        
-          
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Pràctiques
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            Pràctiques
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 1
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC2/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 2
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC3/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 3
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../license/" class="md-nav__link">
         
@@ -1607,6 +1546,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#apendix-1-postman" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apèndix 1: Postman.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apendix-2-swagger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apèndix 2: Swagger
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1623,7 +1588,53 @@
 
   <h1>Test. Postman i Swagger</h1>
 
+<h2 id="apendix-1-postman">Apèndix 1: Postman.</h2>
+<p>Aquest és un programari gratuït i, a través de Postman, podem fer sol·licituds:</p>
+<ul>
+<li>GET, a una ruta, indicant els paràmetres en totes les seves possibilitats, en la Query de la ruta, com a identificadors en la ruta.</li>
+<li>POST i PUT, permetent d'una manera molt còmoda editar els objectes JSON en el cos (Body) de la sol·licitud.</li>
+<li>DELETE, per realitzar eliminacions.</li>
+</ul>
+<p>Vegem com podem treballar amb les consultes a la nostra API acabada de crear. El primer pas a fer és crear un espai de treball o Workspace, on afegirem les nostres sol·licituds.</p>
+<p><a class="glightbox" href="../img/Postman_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Postman_1" src="../img/Postman_1.png" width="95%" /></a></p>
+<p>Després, podríem començar a crear <code>http_request</code>:</p>
+<p><a class="glightbox" href="../img/Postman_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Postman_2" src="../img/Postman_2.png" width="95%" /></a></p>
+<p>podríem canviar el tipus de sol·licitud en el selector de l'esquerra:</p>
+<p><a class="glightbox" href="../img/Postman_4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Postman_4" src="../img/Postman_4.png" width="45%" /></a></p>
+<p>podríem establir paràmetres afegint <code>?name=value</code> en la sol·licitud.</p>
+<p><a class="glightbox" href="../img/Postman_6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Postman_6" src="../img/Postman_6.png" width="95%" /></a></p>
+<p>I podem establir valors de variables en el camí simplement afegint-los a la sol·licitud (com a text en el camí). Recorda que això correspon amb <code>PathVariable</code>.</p>
+<p><a class="glightbox" href="../img/Postman_7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Postman_7" src="../img/Postman_7.png" width="95%" /></a></p>
+<p>Si volem enviar dades, en forma d'objecte JSON, com fan els formularis, hem de configurar dins del cos com a dades <code>raw</code> com a json en una sol·licitud POST o PUT:</p>
+<p><a class="glightbox" href="../img/Postman_8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Postman_8" src="../img/Postman_8.png" width="95%" /></a></p>
+<p><a class="glightbox" href="../img/Postman_10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Postman_10" src="../img/Postman_10.png" width="95%" /></a></p>
+<p>Finalment, aquí tens una sol·licitud <code>DELETE</code>:</p>
+<p><a class="glightbox" href="../img/Postman_11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Postman_11" src="../img/Postman_11.png" width="95%" /></a></p>
+<!--
+\begin{center}
+\begin{minipage}{0.99\textwidth}
+\includegraphics[width=0.99\columnwidth]{./img/ObjectStatus.png}
+\end{minipage}
+\end{center}
 
+https://www.baeldung.com/spring-data-jpa-pagination-sorting
+https://spring.io/projects/spring-hateoas#samples
+https://spring.io/guides/tutorials/rest/
+https://www.baeldung.com/spring-boot-bean-validation
+
+Completíssim curs de JWT (Amb exemple de projecte amb MongoDB i tot)
+https://www.toptal.com/spring/spring-security-tutorial
+
+<https://medium.com/geekculture/implementing-json-web-token-jwt-authentication-using-spring-security-detailed-walkthrough-1ac480a8d970>
+
+<https://www.bezkoder.com/spring-boot-jwt-authentication/>
+
+<https://www.javainuse.com/spring/boot-jwt>
+
+-->
+
+<h2 id="apendix-2-swagger">Apèndix 2: Swagger</h2>
+<p>En aquesta pàgina <a href="https://www.baeldung.com/spring-rest-openapi-documentation">https://www.baeldung.com/spring-rest-openapi-documentation</a> pots trobar com afegir a la nostra pròpia API un generador de peticions de manera simple. </p>
 
 
 

@@ -84,6 +84,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1-introduccio-serveis-dacces-a-dades" class="md-skip">
+          Salta el contingut
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1131,6 +1136,19 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Serveis d'Acces a Dades
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1142,6 +1160,50 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccio-serveis-dacces-a-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducció. Serveis d'Accés a Dades
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-mvc" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. MVC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. REST
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1459,120 +1521,6 @@
   
   
   
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
-        
-          
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Pràctiques
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            Pràctiques
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 1
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC2/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 2
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC3/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 3
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../license/" class="md-nav__link">
         
@@ -1607,6 +1555,41 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccio-serveis-dacces-a-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducció. Serveis d'Accés a Dades
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-mvc" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. MVC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. REST
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1623,7 +1606,32 @@
 
   <h1>Serveis d'Acces a Dades</h1>
 
-
+<h2 id="1-introduccio-serveis-dacces-a-dades">1. Introducció. Serveis d'Accés a Dades</h2>
+<p>Un <strong>servlet</strong> és una aplicació que s'executa en un servidor, preparada per respondre a <em>sol·licituds http</em>. Més tard tenim <strong>JSP</strong> (Java Server Pages), que permeten combinar elements <em>HTML/XML</em> amb fragments de <em>codi Java</em> per generar contingut dinàmicament. Hem de llançar un servidor d'aplicacions i afegir l'aplicació per executar-la i servir-la com una altra pàgina.</p>
+<p>Podem utilitzar Servlets per escriure una aplicació web, però hi ha molts detalls intrínsecs a controlar: validació, REST, cos de la sol·licitud/resposta per a JSON, vinculació de formularis, etc. Això implica que gran part del nostre codi es dedica a controlar les capes inferiors de comunicació.</p>
+<p>Amb el <strong>framework</strong> Spring, realment utilitzem servlets, però allibera el programador d'aquesta tasca <em>pesada</em>, gestionant-la automàticament. Això permet al programador centrar-se en la lògica de l'aplicació, sense haver de gestionar els nivells inferiors de comunicacions. A més, Spring Boot es defineix com un <strong>accelerador de Spring</strong>, permetent-nos indicar una sèrie de convencions (comportaments) que realitzen tasques pesades de configuració d'arxius per a nosaltres. Finalment, Spring Boot incorpora un servidor web integrat (normalment <code>Tomcat</code>).</p>
+<p>El terme framework o si intentem forçar la seva traducció al català <em>Marc de treball</em> ens proporciona un conjunt de regles i eines dissenyades per augmentar la velocitat de desenvolupament d'aplicacions.</p>
+<h2 id="2-mvc">2. MVC</h2>
+<p>El Model Vista Controlador (MVC) és una arquitectura per al desenvolupament d'aplicacions que separa les dades, la interfície i la lògica de control en capes.</p>
+<p><a class="glightbox" href="../img/MVC.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="MVC" src="../img/MVC.png" /></a></p>
+<p>El funcionament és el següent:</p>
+<ol>
+<li>L'usuari està utilitzant l'aplicació client (normalment un navegador o client), i fa una sol·licitud a través del <strong>protocol http</strong>, també coneguda com una <strong>HTTP_REQUEST</strong>. Aquestes sol·licituds són rebudes pel <strong>mòdul controlador</strong>. El controlador gestiona una llista d'operacions o esdeveniments que pot processar, determinats pel seu propi protocol.</li>
+<li>En el cas d'una sol·licitud que demana una consulta o modificació de les dades, passem els paràmetres proporcionats en la sol·licitud a la <strong>capa del model</strong>. Aquesta capa accedeix a les dades, realitzant els passos 3 i 4 a través d'operacions del SGBD. El Model ara està en condicions de donar una resposta.</li>
+<li>Consultar la base de dades.</li>
+<li>Recuperació de la consulta de la base de dades.</li>
+<li>El model transfereix el conjunt de resultats obtinguts a la vista.</li>
+<li>La vista és responsable de rebre les dades i presentar-les o formatar-les adequadament.</li>
+<li>El controlador retorna la presentació generada per la vista (que normalment serà HTML dinàmic) a l'aplicació client, a través de la sol·licitud <strong>HTTP_RESPONSE</strong>.</li>
+</ol>
+<h2 id="3-rest">3. REST</h2>
+<p>El model <strong>REST</strong> (<strong>Representational State Transfer</strong>) ens permet proporcionar al nostre servidor un servei per recuperar i manipular dades fàcilment al servidor. En aquest model, la part de la vista es delega al client, deixant el controlador i el model al servidor. En aquest model, destacarem entre altres:</p>
+<ul>
+<li>El protocol segueix el model <strong>client/servidor sense estat</strong>, igual que http, una sol·licitud només respondrà segons la informació rebuda en la mateixa sol·licitud, sense tenir en compte totes les anteriors.</li>
+<li>Suport d'operacions CRUD, a través de les especificacions http equivalents: <strong>GET</strong> (consulta), <strong>POST</strong> (crear), <strong>PUT</strong> (modificar) i <strong>DELETE</strong> (eliminar).</li>
+<li>Disposició del model <strong>HATEOAS</strong> (<strong>Hypermedia As Engine Of The Application State</strong>). Aquest principi permet incloure hipervincles com a recursos en les respostes.</li>
+</ul>
+<p>En MVC, i de manera simplificada, seria eliminar la capa de la vista i retornar les dades processades pel model. Normalment els servidors REST retornen dades en format JSON.</p>
 
 
 

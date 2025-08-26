@@ -84,6 +84,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1-introduccio" class="md-skip">
+          Salta el contingut
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1017,6 +1022,19 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Introduccio a les bases de dades OO
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1028,6 +1046,41 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducció
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-bases-de-dades-objecte-relacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Bases de Dades Objecte-Relacional
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1459,120 +1512,6 @@
   
   
   
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
-        
-          
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Pràctiques
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            Pràctiques
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 1
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC2/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 2
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Practiques/APAC3/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pràctica 3
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../license/" class="md-nav__link">
         
@@ -1607,6 +1546,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducció
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-bases-de-dades-objecte-relacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Bases de Dades Objecte-Relacional
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1623,7 +1588,23 @@
 
   <h1>Introduccio a les bases de dades OO</h1>
 
-
+<h2 id="1-introduccio">1. Introducció</h2>
+<p>Les bases de dades relacionals sorgeixen del model relacional com un sistema que representa fidelment la realitat, amb gran solidesa degut a la lògica relacional subjacent. Aquest model representa la perspectiva estàtica de la modelització de l'aplicació, i en ell totes les dades es desglossen a nivells atòmics, ja que, com recordem, no es permeten valors multivaluats ni compostos.</p>
+<p>Aquest model ha patit la bretxa objecte-relacional, en la qual els llenguatges de programació han evolucionat les estructures adoptant la metodologia <strong>orientada a objectes</strong>. Això ens porta a dissenyar la base de dades d'una banda, seguint el model relacional, i també necessitem dissenyar les classes de l'aplicació d'altra banda. Aquests dissenys, que no solen coincidir, es poden <em>ajustar</em> amb les eines ORM estudiades en la unitat anterior per mitigar la desconnexió objecte-relacional.</p>
+<p>D'aquesta bretxa sorgeix la necessitat d'afegir un disseny més orientat a objectes dins de la pròpia base de dades. Si analitzem un esquema orientat a objectes i intentem aplicar la teoria de la normalització, trobarem que els objectes es <em>descomponen</em> en diverses entitats, cosa que provoca l'aparició de moltes taules.</p>
+<p>Aquest alt nombre de taules provoca, com a conseqüència, un augment de les referències entre elles, augmentant considerablement les relacions entre elles i, per tant, un major nombre de restriccions que cal controlar (<code>FOREIGN KEY</code>), cosa que suposa un augment del nombre de comprovacions que ha de realitzar el SGBD.</p>
+<p>Així, en la <strong>BD OO</strong> (<em>Base de Dades Orientada a Objectes</em>) es permet una definició de tipus de dades complexos en comparació amb els simples que incorpora el SGBD relacional, permetent la definició de tipus estructurats i fins i tot multivaluats. Amb tot això, la BD OO hauria de permetre simplement el disseny a través d'objectes (similar a l'UML) indicant els objectes que hi participen, indicant els seus atributs i mètodes, i les relacions que els afecten, i òbviament, les herències.</p>
+<p>Aquestes BD OO encara no han despegat, i algunes solucions que implementen solucions comercials és proporcionar al sistema de bases de dades relacionals les capacitats semàntiques de l'orientació a objectes, apareixent així les BDOR (<em>Bases de Dades Objecte-Relacional</em>).</p>
+<h2 id="2-bases-de-dades-objecte-relacional">2. Bases de Dades Objecte-Relacional</h2>
+<p>L'estàndard ANSI SQL1999 (SQL99 i posteriorment SQL2003), com a continuació de SQL92 en què s'adapten les característiques del model relacional, permet afegir característiques orientades a objectes a les bases de dades relacionals. Això permet que els SGBD robustos hagin <em>adoptat</em> i implementat aquelles característiques requerides. Entre aquestes característiques es troben:</p>
+<ul>
+<li>Definició de nous tipus de dades per part de l'usuari.</li>
+<li>Adaptació per acomodar grans tipus de dades binàries com imatges i documents.</li>
+<li>Capacitat per emmagatzemar elements compostos com arrays.</li>
+<li>Emmagatzemar directament referències a altres taules.</li>
+<li>Definició d'objectes i herència.</li>
+<li>Definició de funcions que gestionen les estructures definides prèviament.</li>
+</ul>
 
 
 
