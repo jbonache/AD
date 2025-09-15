@@ -3,12 +3,13 @@ site_name: Entons de desenvolupament
 # Recorda que tens el extres.md, amb coses sobre Gradle, Tractament d'excepcions, paquets, etc.
 
 nav:
-  - "Inici": 'index.md'
-  - "1. Presentació del mòdul": '1.Presentacio.md'
-  - "2. Objectiu del mòdul. Resultats d'aprenentatge i criteris d'avaluació": '2.Objectius.md'
-  - "3. Continguts": '3.Continguts.md'
-  - "4. Metodologia": '4.Metodologia.md'
-  - "5. Avaluació": '5.Avaluacio.md'
+  - "Inici": "index.md"
+  - "Docència": "0.Docencia.md"
+  - "1. Objectius": "1.Objectius.md"
+  - "2. Resultats d'aprenentatge i criteris d'avaluació": "2.RAs.md"
+  - "3. Continguts": "3.Continguts.md"
+  - "4. Metodologia": "4.Metodologia.md"
+  - "5. Avaluació": "5.Avaluacio.md"
   
 theme:
   name: 'material'
