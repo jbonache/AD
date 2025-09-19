@@ -2633,6 +2633,12 @@
 <a id="__codelineno-3-61" name="__codelineno-3-61"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Millora el teu codi</p>
+<ul>
+<li>Amplia el codi anterior creant un mètode <code>writeToText()</code> que s'invoque amb l'ordre 'transcribe' i que escriga el contingut de l'arxiu '.dat' original a un arxiu de caracters.</li>
+</ul>
+</div>
 <h2 id="16-serialitzant-objectes">1.6. Serialitzant Objectes</h2>
 <p>Java proporciona un sistema genèric de serialització d'objectes: un sistema recursiu que itera sobre cada objecte contingut en una instància, fins arribar als tipus primitius, que s'emmagatzemen com un array de bytes. A part d'aquesta informació dels tipus primitius, també s'emmagatzema informació addicional o metadades específiques de cada classe, com ara el nom o els atributs, entre d'altres. Gràcies a aquestes metadades, que descriuen els objectes que guardem, podem automatitzar la serialització de manera genèrica, assegurant-nos que posteriorment podrem llegir els objectes.</p>
 <p>El desavantatge d'aquest mètode és que quan canviem la definició de la classe (per exemple, afegint un atribut més o canviant el seu tipus), les metadades es modifiquen i no podríem llegir els objectes serialitzats amb versions anteriors de la classe. A més, també cal tenir en compte que aquest és un mecanisme específic de Java i que no podrem consultar aquests objectes des d'altres llenguatges.</p>
