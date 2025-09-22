@@ -1987,7 +1987,7 @@ Un <strong>analitzador XML</strong> és una classe que permet analitzar un fitxe
 <a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="c1">//And we use DocumentBuilder&#39;s &quot;parse&quot; method to get the document</span>
 <a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="n">Document</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dBuilder</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">name</span><span class="p">));</span>
 <a id="__codelineno-2-9" name="__codelineno-2-9"></a>
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">document</span><span class="p">;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">doc</span><span class="p">;</span>
 <a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>S'ha de dir que la funció anterior es podria simplificar sense utilitzar les declaracions intermèdies, però està una mica ofuscada.</p>
@@ -2110,112 +2110,215 @@ Un <strong>analitzador XML</strong> és una classe que permet analitzar un fitxe
 <a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<details class="note">
+<summary>Vinga, ara tu!</summary>
+<ul>
+<li>Crea un nou projecte que llisca un arxiu xml i mostre el seu contingut per eixida estandar. Per exemple:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">XML</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span>
+<span class="normal"><a href="#__codelineno-7-20">20</a></span>
+<span class="normal"><a href="#__codelineno-7-21">21</a></span>
+<span class="normal"><a href="#__codelineno-7-22">22</a></span>
+<span class="normal"><a href="#__codelineno-7-23">23</a></span>
+<span class="normal"><a href="#__codelineno-7-24">24</a></span>
+<span class="normal"><a href="#__codelineno-7-25">25</a></span>
+<span class="normal"><a href="#__codelineno-7-26">26</a></span>
+<span class="normal"><a href="#__codelineno-7-27">27</a></span>
+<span class="normal"><a href="#__codelineno-7-28">28</a></span>
+<span class="normal"><a href="#__codelineno-7-29">29</a></span>
+<span class="normal"><a href="#__codelineno-7-30">30</a></span>
+<span class="normal"><a href="#__codelineno-7-31">31</a></span>
+<span class="normal"><a href="#__codelineno-7-32">32</a></span>
+<span class="normal"><a href="#__codelineno-7-33">33</a></span>
+<span class="normal"><a href="#__codelineno-7-34">34</a></span>
+<span class="normal"><a href="#__codelineno-7-35">35</a></span>
+<span class="normal"><a href="#__codelineno-7-36">36</a></span>
+<span class="normal"><a href="#__codelineno-7-37">37</a></span>
+<span class="normal"><a href="#__codelineno-7-38">38</a></span>
+<span class="normal"><a href="#__codelineno-7-39">39</a></span>
+<span class="normal"><a href="#__codelineno-7-40">40</a></span>
+<span class="normal"><a href="#__codelineno-7-41">41</a></span>
+<span class="normal"><a href="#__codelineno-7-42">42</a></span>
+<span class="normal"><a href="#__codelineno-7-43">43</a></span>
+<span class="normal"><a href="#__codelineno-7-44">44</a></span>
+<span class="normal"><a href="#__codelineno-7-45">45</a></span>
+<span class="normal"><a href="#__codelineno-7-46">46</a></span>
+<span class="normal"><a href="#__codelineno-7-47">47</a></span>
+<span class="normal"><a href="#__codelineno-7-48">48</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="nt">&lt;estudiants&gt;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">  </span><span class="nt">&lt;alumne&gt;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="nt">&lt;nom&gt;</span>Joan<span class="nt">&lt;/nom&gt;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="nt">&lt;cognoms&gt;</span>Serra<span class="w"> </span>Grau<span class="nt">&lt;/cognoms&gt;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="nt">&lt;edat&gt;</span>20<span class="nt">&lt;/edat&gt;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="nt">&lt;curs&gt;</span>1r<span class="w"> </span>DAM<span class="nt">&lt;/curs&gt;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="nt">&lt;moduls&gt;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">        </span><span class="nt">&lt;modul&gt;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">            </span><span class="nt">&lt;nom&gt;</span>Programació<span class="nt">&lt;/nom&gt;</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">            </span><span class="nt">&lt;nota&gt;</span>5.5<span class="nt">&lt;/nota&gt;</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">            </span><span class="nt">&lt;professor&gt;</span>Joan<span class="w"> </span>Gerard<span class="nt">&lt;/professor&gt;</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">        </span><span class="nt">&lt;/modul&gt;</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">        </span><span class="nt">&lt;modul&gt;</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">            </span><span class="nt">&lt;nom&gt;</span>Base<span class="w"> </span>de<span class="w"> </span>dades<span class="nt">&lt;/nom&gt;</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">            </span><span class="nt">&lt;nota&gt;</span>8.85<span class="nt">&lt;/nota&gt;</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">            </span><span class="nt">&lt;professor&gt;</span>Abdó<span class="nt">&lt;/professor&gt;</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="w">        </span><span class="nt">&lt;/modul&gt;</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="w">        </span><span class="nt">&lt;modul&gt;</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="w">            </span><span class="nt">&lt;nom&gt;</span>Sistemes<span class="w"> </span>informàtics<span class="nt">&lt;/nom&gt;</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="w">            </span><span class="nt">&lt;nota&gt;</span>2.6<span class="nt">&lt;/nota&gt;</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21"></a><span class="w">            </span><span class="nt">&lt;professor&gt;</span>Sergio<span class="nt">&lt;/professor&gt;</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22"></a><span class="w">        </span><span class="nt">&lt;/modul&gt;</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23"></a><span class="w">    </span><span class="nt">&lt;/moduls&gt;</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24"></a><span class="w">  </span><span class="nt">&lt;/alumne&gt;</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="w">  </span><span class="nt">&lt;alumne&gt;</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26"></a><span class="w">    </span><span class="nt">&lt;nom&gt;</span>Marta<span class="nt">&lt;/nom&gt;</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27"></a><span class="w">    </span><span class="nt">&lt;cognoms&gt;</span>Torres<span class="w"> </span>Pla<span class="nt">&lt;/cognoms&gt;</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28"></a><span class="w">    </span><span class="nt">&lt;edat&gt;</span>25<span class="nt">&lt;/edat&gt;</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29"></a><span class="w">    </span><span class="nt">&lt;curs&gt;</span>1r<span class="w"> </span>DAM<span class="nt">&lt;/curs&gt;</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30"></a><span class="w">    </span><span class="nt">&lt;moduls&gt;</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31"></a><span class="w">        </span><span class="nt">&lt;modul&gt;</span>
+<a id="__codelineno-7-32" name="__codelineno-7-32"></a><span class="w">            </span><span class="nt">&lt;nom&gt;</span>Programació<span class="nt">&lt;/nom&gt;</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33"></a><span class="w">            </span><span class="nt">&lt;nota&gt;</span>5.5<span class="nt">&lt;/nota&gt;</span>
+<a id="__codelineno-7-34" name="__codelineno-7-34"></a><span class="w">            </span><span class="nt">&lt;professor&gt;</span>Joan<span class="w"> </span>Gerard<span class="nt">&lt;/professor&gt;</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35"></a><span class="w">        </span><span class="nt">&lt;/modul&gt;</span>
+<a id="__codelineno-7-36" name="__codelineno-7-36"></a><span class="w">        </span><span class="nt">&lt;modul&gt;</span>
+<a id="__codelineno-7-37" name="__codelineno-7-37"></a><span class="w">            </span><span class="nt">&lt;nom&gt;</span>Base<span class="w"> </span>de<span class="w"> </span>dades<span class="nt">&lt;/nom&gt;</span>
+<a id="__codelineno-7-38" name="__codelineno-7-38"></a><span class="w">            </span><span class="nt">&lt;nota&gt;</span>8.85<span class="nt">&lt;/nota&gt;</span>
+<a id="__codelineno-7-39" name="__codelineno-7-39"></a><span class="w">            </span><span class="nt">&lt;professor&gt;</span>Abdó<span class="nt">&lt;/professor&gt;</span>
+<a id="__codelineno-7-40" name="__codelineno-7-40"></a><span class="w">        </span><span class="nt">&lt;/modul&gt;</span>
+<a id="__codelineno-7-41" name="__codelineno-7-41"></a><span class="w">        </span><span class="nt">&lt;modul&gt;</span>
+<a id="__codelineno-7-42" name="__codelineno-7-42"></a><span class="w">            </span><span class="nt">&lt;nom&gt;</span>Sistemes<span class="w"> </span>informàtics<span class="nt">&lt;/nom&gt;</span>
+<a id="__codelineno-7-43" name="__codelineno-7-43"></a><span class="w">            </span><span class="nt">&lt;nota&gt;</span>7<span class="nt">&lt;/nota&gt;</span>
+<a id="__codelineno-7-44" name="__codelineno-7-44"></a><span class="w">            </span><span class="nt">&lt;professor&gt;</span>Sergio<span class="nt">&lt;/professor&gt;</span>
+<a id="__codelineno-7-45" name="__codelineno-7-45"></a><span class="w">        </span><span class="nt">&lt;/modul&gt;</span>
+<a id="__codelineno-7-46" name="__codelineno-7-46"></a><span class="w">    </span><span class="nt">&lt;/moduls&gt;</span>
+<a id="__codelineno-7-47" name="__codelineno-7-47"></a><span class="w">  </span><span class="nt">&lt;/alumne&gt;</span>
+<a id="__codelineno-7-48" name="__codelineno-7-48"></a><span class="nt">&lt;estudiants&gt;</span>
+</code></pre></div></td></tr></table></div>
+Fixa't que per a cada alumne, a banda de la informació pròpia de l'alumne, hauràs de mostrar la informació de cadascun dels seus mòduls.</li>
+</ul>
+</details>
 <h2 id="15-escriure-fitxers-xml">1.5. Escriure fitxers XML</h2>
 <p>Ara anem a la part d'escriptura dels documents XML. Per això, partirem d'un fitxer que ja conté la informació en format binari dels mòduls (per exemple, de la secció anterior), el llegirem i importarem la seva informació en format XML.</p>
 <p>El primer que hem de fer és llegir el fitxer d'objectes utilitzant un <code>ObjectInputStream</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">ObjectInputStream</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObjectInputStream</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="n">file</span><span class="p">));</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">ObjectInputStream</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObjectInputStream</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="n">file</span><span class="p">));</span>
 </code></pre></div></td></tr></table></div>
 <p>I crearem un document buit amb les classes <code>DocumentBuilder</code> i <code>DocumentBuilderFactory</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">Document</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentBuilderFactory</span><span class="p">.</span><span class="na">newInstance</span><span class="p">().</span><span class="na">newDocumentBuilder</span><span class="p">().</span><span class="na">newDocument</span><span class="p">();</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">Document</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentBuilderFactory</span><span class="p">.</span><span class="na">newInstance</span><span class="p">().</span><span class="na">newDocumentBuilder</span><span class="p">().</span><span class="na">newDocument</span><span class="p">();</span>
 </code></pre></div></td></tr></table></div>
 <p>Un cop tenim el document buit, creem l'element arrel (curs) i l'afegim al document:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
-<span class="normal"><a href="#__codelineno-9-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">Element</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">&quot;curso&quot;</span><span class="p">);</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">doc</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">Element</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">&quot;curso&quot;</span><span class="p">);</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="n">doc</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <p>Recorda que accedirem al fitxer d'objectes, així que haurem de saber exactament com és la classe que volem llegir i accedir als mètodes corresponents per obtenir informació sobre ella. Per això, primer, has de definir un objecte de tipus <code>Modul</code>, i llegirem el fitxer d'objectes amb el mètode <code>readObject</code> de <code>File</code>. Un cop hàgim llegit un objecte, crearem l'etiqueta que engloba cadascun d'ells: l'etiqueta <code>modul</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
-<span class="normal"><a href="#__codelineno-10-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">Modul</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Modul</span><span class="p">)</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="na">readObject</span><span class="p">();</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="n">Element</span><span class="w"> </span><span class="n">modul</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">&quot;modul&quot;</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<p>And inside it, as we extract the different properties of the Modul object, we will create child nodes and add them to the module. For example, for the module name:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
-<span class="normal"><a href="#__codelineno-11-2">2</a></span>
-<span class="normal"><a href="#__codelineno-11-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">Element</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">&quot;nom&quot;</span><span class="p">);</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">name</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">doc</span><span class="p">.</span><span class="na">createTextNode</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="na">getNom</span><span class="p">()));</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="n">module</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">Modul</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Modul</span><span class="p">)</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="na">readObject</span><span class="p">();</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">Element</span><span class="w"> </span><span class="n">modul</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">&quot;modul&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>I dins d'ell, a mesura que extraiem les diferents propietats de l'objecte Modul, crearem nodes fills i els afegirem al mòdul. Per exemple, per al nom del mòdul:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">Element</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">&quot;nom&quot;</span><span class="p">);</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="n">name</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">doc</span><span class="p">.</span><span class="na">createTextNode</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="na">getNom</span><span class="p">()));</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="n">module</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <p>Com podem veure, hem creat un objecte de tipus Element amb l'etiqueta 'nom', i hem afegit com a fill un node de tipus text (TEXT_NODE), que hem extret directament de l'objecte <code>Modul m</code> amb la seva pròpia funció <code>getModul()</code>. A més, hem afegit aquesta etiqueta a l'etiqueta <code>&lt;modul&gt;</code>, amb <code>appendChild</code>.</p>
 <p>Haurem de fer el mateix per a les hores de cada mòdul i la qualificació, però per això, haurem de tenir en compte que els mètodes getHores i getNota no retornen una cadena de text, sinó un enter i un decimal, de manera que hauran de ser convertits a text:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
-<span class="normal"><a href="#__codelineno-12-2">2</a></span>
-<span class="normal"><a href="#__codelineno-12-3">3</a></span>
-<span class="normal"><a href="#__codelineno-12-4">4</a></span>
-<span class="normal"><a href="#__codelineno-12-5">5</a></span>
-<span class="normal"><a href="#__codelineno-12-6">6</a></span>
-<span class="normal"><a href="#__codelineno-12-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">Element</span><span class="w"> </span><span class="n">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">&quot;hores&quot;</span><span class="p">);</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="n">hours</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">doc</span><span class="p">.</span><span class="na">createTextNode</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="na">getHores</span><span class="p">())));</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="n">module</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">hours</span><span class="p">);</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4"></a>
-<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="n">Element</span><span class="w"> </span><span class="n">qualification</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">&quot;qualificacio&quot;</span><span class="p">);</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="n">qualification</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">doc</span><span class="p">.</span><span class="na">createTextNode</span><span class="p">(</span><span class="n">Double</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="na">getNote</span><span class="p">())));</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="n">module</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">grade</span><span class="p">);</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span>
+<span class="normal"><a href="#__codelineno-13-5">5</a></span>
+<span class="normal"><a href="#__codelineno-13-6">6</a></span>
+<span class="normal"><a href="#__codelineno-13-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">Element</span><span class="w"> </span><span class="n">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">&quot;hores&quot;</span><span class="p">);</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">hours</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">doc</span><span class="p">.</span><span class="na">createTextNode</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="na">getHores</span><span class="p">())));</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">module</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">hours</span><span class="p">);</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="n">Element</span><span class="w"> </span><span class="n">qualification</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">&quot;qualificacio&quot;</span><span class="p">);</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="n">qualification</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">doc</span><span class="p">.</span><span class="na">createTextNode</span><span class="p">(</span><span class="n">Double</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="na">getNote</span><span class="p">())));</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="n">module</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">grade</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <p>Posarem tot aquest procediment dins d'un bucle que recorrerà tot el fitxer d'objectes. Un cop hàgim llegit cada un dels mòduls, haurem d'afegir-los a l'element arrel amb:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">root</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">module</span><span class="p">);</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">root</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">module</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
-<p>And we will already have our XML document at the root. Now we would have to convert this object of type <code>Element</code> into a text string in order to be able to write it to the disk. For this, we will make use of the <code>Transformer</code> utility.</p>
+<p>I ja tindrem el nostre document XML a l'arrel. Ara hauríem de convertir aquest objecte de tipus <code>Element</code> en una cadena de text per poder escriure'l al disc. Per a això, farem ús de la utilitat <code>Transformer</code>.</p>
 <h3 id="151-transformer">1.5.1. Transformer</h3>
 <p>Java ens ofereix l'utilitat <code>Transformer</code> per convertir informació entre diferents formats jeràrquics, com ara l'objecte Document que conté el DOM del nostre XML, a un fitxer de text XML.</p>
 <p>La classe <code>Transformer</code>, com <code>DocumentBuilder</code>, també és una classe abstracta, per la qual cosa també requereix una fàbrica per ser instanciada. La classe Transformer treballa amb dos tipus d'adaptadors. Els adaptadors són classes que fan compatibles diferents jerarquies. Aquests adaptadors són <code>Source</code> i <code>Result</code>. Les classes que implementen aquests adaptadors seran les encarregades de fer compatibles els diferents tipus de contenidors amb el que requereix la classe Transformer. Així, i per aclarir-ho, tenim les classes <code>DOMSource</code>, <code>SAXSource</code> o <code>StreamSource</code>, que són adaptadors del contenidor d'origen de la informació per a DOM, SAX o Stream; i <code>DOMResult</code>, <code>SAXResult</code> i <code>StreamResult</code> com a adaptadors equivalents per al contenidor de destinació.</p>
 <p>En el nostre cas, ja que tenim un DOM i volem convertir-lo en un Stream, necessitarem un <code>DomSource</code> i un <code>StreamResult</code>. Veurem el codi necessari per fer-ho:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
-<span class="normal"><a href="#__codelineno-14-2">2</a></span>
-<span class="normal"><a href="#__codelineno-14-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">Transformer</span><span class="w"> </span><span class="n">trans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TransformerFactory</span><span class="p">.</span><span class="na">newInstance</span><span class="p">().</span><span class="na">newTransformer</span><span class="p">();</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">DOMSource</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DOMSource</span><span class="p">(</span><span class="n">doc</span><span class="p">);</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="n">StreamResult</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StreamResult</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileOutputStream</span><span class="p">(</span><span class="n">file</span><span class="o">+</span><span class="s">&quot;.xml&quot;</span><span class="p">));</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">Transformer</span><span class="w"> </span><span class="n">trans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TransformerFactory</span><span class="p">.</span><span class="na">newInstance</span><span class="p">().</span><span class="na">newTransformer</span><span class="p">();</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="n">DOMSource</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DOMSource</span><span class="p">(</span><span class="n">doc</span><span class="p">);</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="n">StreamResult</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StreamResult</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileOutputStream</span><span class="p">(</span><span class="n">file</span><span class="o">+</span><span class="s">&quot;.xml&quot;</span><span class="p">));</span>
 </code></pre></div></td></tr></table></div>
 <p>El primer que hem fet és crear un objecte de tipus <code>Transformer</code> amb el mètode <code>newTransformer()</code> d'una instància (newInstance()) de la fàbrica de Transformers TransformerFactory. A continuació, hem definit la font (source) i el resultat (resultat) per a la transformació, sent la font un DomSource creat a partir del doc que conté el nostre document, i el resultat un StreamResult, que escriurà el flux al disc a través d'un FileOutputStream.</p>
 <p>Finalment, fem la transformació d'un element a un altre, que generarà automàticament el fitxer XML de sortida:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">trans</span><span class="p">.</span><span class="na">transform</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">trans</span><span class="p">.</span><span class="na">transform</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="16-tecniques-avancades-vinculacio-xml">1.6. Tècniques avançades: vinculació XML</h2>
 <p>La tècnica de vinculació consisteix en generar classes Java amb formats específics, com ara XML, de manera que cada etiqueta o atribut XML correspongui a una propietat d'una determinada classe. Aquesta correspondència s'anomena <strong>mapeig</strong>.</p>
 <p>En Java, hi ha diferents llibreries per a la vinculació o mapeig: JAXB, JuBX, XMLBinding, etc. JAXB (Java Architecture for XML Binding) és una potent llibreria que s'ha inclòs en l'estàndard des de JDK 6, però s'ha eliminat a la versió 11 i es suggereix incloure-la com a paquet extern. JAXB fa servir anotacions per obtenir la informació necessària per al mapeig de la vinculació. Les anotacions són indicacions especials de Java que permeten associar informació i funcionalitat als objectes, sense interferir en l'estructura del model de dades. Les anotacions es poden associar amb un paquet, una classe, un atribut o un paràmetre, i es declaren amb el símbol <code>@</code> davant del nom de l'anotació. Quan el compilador detecta una anotació, crea una instància i l'injecta a l'element afectat, sense interferir en la classe mateixa. Quan una aplicació necessita la informació de les anotacions, pot obtenir la instància injectada.</p>
 <p>Per exemple, a la classe <code>Modul</code> que havíem definit, faríem servir l'anotació <code>@XmlRootElement</code> per indicar l'element arrel del mòdul, i les anotacions <code>@XmlElement</code> per indicar que els setters de la classe també escriuran elements XML.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-16-10">10</a></span>
-<span class="normal"><a href="#__codelineno-16-11">11</a></span>
-<span class="normal"><a href="#__codelineno-16-12">12</a></span>
-<span class="normal"><a href="#__codelineno-16-13">13</a></span>
-<span class="normal"><a href="#__codelineno-16-14">14</a></span>
-<span class="normal"><a href="#__codelineno-16-15">15</a></span>
-<span class="normal"><a href="#__codelineno-16-16">16</a></span>
-<span class="normal"><a href="#__codelineno-16-17">17</a></span>
-<span class="normal"><a href="#__codelineno-16-18">18</a></span>
-<span class="normal"><a href="#__codelineno-16-19">19</a></span>
-<span class="normal"><a href="#__codelineno-16-20">20</a></span>
-<span class="normal"><a href="#__codelineno-16-21">21</a></span>
-<span class="normal"><a href="#__codelineno-16-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="nd">@XmlRootElement</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kd">class</span> <span class="nc">Modul</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3"></a>
-<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="p">;</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">hores</span><span class="p">;</span>
-<a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">nota</span><span class="p">;</span>
-<a id="__codelineno-16-7" name="__codelineno-16-7"></a>
-<a id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getNom</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">nom</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="w">    </span><span class="nd">@XmlElement</span>
-<a id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setNom</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nom</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-16-11" name="__codelineno-16-11"></a>
-<a id="__codelineno-16-12" name="__codelineno-16-12"></a>
-<a id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getHores</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">hores</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="w">    </span><span class="nd">@XmlElement</span>
-<a id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setHores</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">hores</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">hores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hores</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-16-16" name="__codelineno-16-16"></a>
-<a id="__codelineno-16-17" name="__codelineno-16-17"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getNota</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">nota</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-16-18" name="__codelineno-16-18"></a><span class="w">    </span><span class="nd">@XmlElement</span>
-<a id="__codelineno-16-19" name="__codelineno-16-19"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setNota</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">nota</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">nota</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nota</span><span class="p">;}</span>
-<a id="__codelineno-16-20" name="__codelineno-16-20"></a>
-<a id="__codelineno-16-21" name="__codelineno-16-21"></a>
-<a id="__codelineno-16-22" name="__codelineno-16-22"></a><span class="p">}</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-17-10">10</a></span>
+<span class="normal"><a href="#__codelineno-17-11">11</a></span>
+<span class="normal"><a href="#__codelineno-17-12">12</a></span>
+<span class="normal"><a href="#__codelineno-17-13">13</a></span>
+<span class="normal"><a href="#__codelineno-17-14">14</a></span>
+<span class="normal"><a href="#__codelineno-17-15">15</a></span>
+<span class="normal"><a href="#__codelineno-17-16">16</a></span>
+<span class="normal"><a href="#__codelineno-17-17">17</a></span>
+<span class="normal"><a href="#__codelineno-17-18">18</a></span>
+<span class="normal"><a href="#__codelineno-17-19">19</a></span>
+<span class="normal"><a href="#__codelineno-17-20">20</a></span>
+<span class="normal"><a href="#__codelineno-17-21">21</a></span>
+<span class="normal"><a href="#__codelineno-17-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="nd">@XmlRootElement</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="kd">class</span> <span class="nc">Modul</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="p">;</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">hores</span><span class="p">;</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">nota</span><span class="p">;</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a>
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getNom</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">nom</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="w">    </span><span class="nd">@XmlElement</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setNom</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nom</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11"></a>
+<a id="__codelineno-17-12" name="__codelineno-17-12"></a>
+<a id="__codelineno-17-13" name="__codelineno-17-13"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getHores</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">hores</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-17-14" name="__codelineno-17-14"></a><span class="w">    </span><span class="nd">@XmlElement</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setHores</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">hores</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">hores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hores</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16"></a>
+<a id="__codelineno-17-17" name="__codelineno-17-17"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getNota</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">nota</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-17-18" name="__codelineno-17-18"></a><span class="w">    </span><span class="nd">@XmlElement</span>
+<a id="__codelineno-17-19" name="__codelineno-17-19"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setNota</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">nota</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">nota</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nota</span><span class="p">;}</span>
+<a id="__codelineno-17-20" name="__codelineno-17-20"></a>
+<a id="__codelineno-17-21" name="__codelineno-17-21"></a>
+<a id="__codelineno-17-22" name="__codelineno-17-22"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Amb això tindríem només la classe amb les anotacions preparades per desar un mòdul com a document XML. Per desar tota la jerarquia hauríem de crear la classe <code>Curs</code>, que contindria un <code>ArrayList</code> de mòduls.</p>
 <p>Pel que fa a aquest curs, no aprofundirem més en aquesta tècnica, ja que per als nostres propòsits, l'anàlisi XML que hem vist a les seccions anteriors és suficient.</p>
