@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-extra-formats" class="md-skip">
+        <a href="#5-arxius-separats-per-comes-csv" class="md-skip">
           Salta el contingut
         </a>
       
@@ -654,9 +654,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#11-fitxers-csv" class="md-nav__link">
+  <a href="#51-arxius-csv" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1. Fitxers CSV
+      5.1. Arxius CSV
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-separador" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2. Separador
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-processament" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3. Processament
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-exercici-proposat" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4. Exercici proposat
     </span>
   </a>
   
@@ -1657,9 +1684,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#11-fitxers-csv" class="md-nav__link">
+  <a href="#51-arxius-csv" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1. Fitxers CSV
+      5.1. Arxius CSV
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-separador" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2. Separador
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-processament" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3. Processament
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-exercici-proposat" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4. Exercici proposat
     </span>
   </a>
   
@@ -1765,10 +1819,18 @@
 
 
 
-<h1 id="1-extra-formats">1. Extra formats</h1>
+<h1 id="5-arxius-separats-per-comes-csv">5. Arxius separats per comes. CSV</h1>
 <p>En aquesta secció estudiarem dos tipus de fitxers de text que s'utilitzen àmpliament en informàtica i la forma de treballar amb ells.</p>
-<h2 id="11-fitxers-csv">1.1. Fitxers CSV</h2>
-<p>Un fitxer de <strong>valors separats per comes</strong> (CSV) és un fitxer de text estàndard que utilitza una coma (<code>,</code>) per separar els valors. Cada línia del fitxer consisteix en un o més camps separats per comes. Cada camp pot o no estar tancat entre cometes dobles. A més, diversos formats utilitzen diferents caràcters com a separador, com el punt i coma (<code>;</code>) o el símbol de numeral (<code>#</code>). El <a href="https://tools.ietf.org/html/rfc4180">RFC 4180</a> defineix el format o les definicions d'un fitxer CSV o fitxer de text/csv.</p>
+<h2 id="51-arxius-csv">5.1. Arxius CSV</h2>
+<p>Un fitxer de <strong>valors separats per comes</strong> (CSV) és un fitxer de text estàndard que utilitza una coma (<code>,</code>) per separar els valors. Cada línia del fitxer consisteix en un o més camps separats per comes. Cada camp pot o no estar tancat entre cometes dobles. A més, diversos formats utilitzen diferents caràcters com a separador, com el punt i coma (<code>;</code>) o el símbol de numeral (<code>#</code>). </p>
+<p>El <a href="https://tools.ietf.org/html/rfc4180">RFC 4180</a> defineix el format o les definicions d'un fitxer CSV o fitxer de text/csv.</p>
+<p>El format CSV és útil per coses com:</p>
+<ol>
+<li>Senzill d'implementar i de llegir, a més de compatibilitat entre plataformes. Això és degut a que son fitxer de text pla.</li>
+<li>Compatibilitat: programes com Excel i Google Sheets permeten la manipulació d'aquest fitxer. Ademés la majoria de llenguatges moderns incorporen llibreries de manipulació d'aquest format</li>
+<li>Ocupa menys espai que els seus respectius JSON o CSV, degut a que les etiquetes sols apareixen un cop, en la linia de capçalera. S'ha convertit en l'estàndar de facte (no imposat per ningú, sinò per la pròpia comunitat) per a representar conjunts de dades per a IA i Big Data</li>
+</ol>
+<h2 id="52-separador">5.2. Separador</h2>
 <p>En cas que el símbol utilitzat com a separador aparegui dins dels valors, és una bona idea tancar el contingut entre cometes. Es pot veure un exemple de fitxer CSV aquí:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
@@ -1784,14 +1846,13 @@
 <a id="__codelineno-0-6" name="__codelineno-0-6"></a>Plymouth Cuda 340;14.0;8;340.0;160.0;3609.;8.0;70;US
 <a id="__codelineno-0-7" name="__codelineno-0-7"></a>Ford Mustang Boss 302;0;8;302.0;140.0;3353.;8.0;70;US
 </code></pre></div></td></tr></table></div>
+<h2 id="53-processament">5.3. Processament</h2>
 <p>La manera de processar un fitxer CSV en Java és:</p>
 <ol>
 <li>Obrir el fitxer com a fitxer de text per a la lectura. Hem de llegir línia per línia, ja que cada línia és un registre. Llegir una línia en una variable de tipus <code>String</code>.</li>
-<li>Processar els registres individuals:<ol>
-<li>Podem separar cada camp. Una bona opció és utilitzar el mètode <code>split(char)</code> de la classe String. Obtinguem un array de cadenes amb els valors dels camps individuals.</li>
-<li>Processar cada valor de camp segons les necessitats.</li>
-</ol>
-</li>
+<li>Processar els registres individuals:
+    a. Podem separar cada camp. Una bona opció és utilitzar el mètode <code>split(char)</code> de la classe String. Obtinguem un array de cadenes amb els valors dels camps individuals.
+    b. Processar cada valor de camp segons les necessitats.</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Atenció</p>
@@ -1804,6 +1865,21 @@
 <li><a href="https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/nio/file/Paths.html">Paths</a></li>
 </ul>
 </div>
+<h2 id="54-exercici-proposat">5.4. Exercici proposat</h2>
+<p>A partir de la classe mòdul vista anteriorment:</p>
+<ol>
+<li>Afig un constructor que a partir de una línia del CSV cree el objecte mòdul</li>
+<li>Afig un mètode a la clàsse que convertisca el objecte en un línia CSV</li>
+<li>Crea un funcío que guarda tot el array de curs a un arxiu CSV</li>
+<li>Compara el tamany del fitxer respecte al JSON o XML</li>
+<li>Crea una funció que llig el CSV i genere els objectes a l'array</li>
+</ol>
+<p>La crida al programa tindrà 3 possibilitats:</p>
+<ul>
+<li><strong>writeCSV</strong> que converteix el array amb la informació dels mòduls a un arxiu CSV, incloent la capçalera. Com a arguments se li passarà el arxiu de destí (<strong><em>writeCSV moduls.csv</em></strong>)</li>
+<li><strong>readCSV</strong> que llig arxiu CSV i el converteix a un arxiu d'objectes de la classe mòdul (.obj). com a arguments se li passarà el arxiu .obj i generarà el mateix amb l'estensió .csv (<strong><em>readCSV moduls.obj</em></strong>) &gt;&gt; es crearà l'arxiu <em>moduls.csv</em></li>
+<li><strong>convertCSV</strong> que llig un arxiu d'objectes de la classe mòdul (.obj) i genera un nou arxiu CSV, incloent la capçalera. Li se passarà com arguments el arxius d'objectes de mòduls i com a destí el nom de l'arxiu a crear (<strong><em>convertCSV arxiu_font.obj arxiu_destí.csv</em></strong>)</li>
+</ul>
 <h2 id="12-fitxers-de-propietats">1.2. Fitxers de propietats</h2>
 <h3 id="121-fitxer-de-propietats">1.2.1. Fitxer de propietats</h3>
 <p>Finalment, però no menys important, us mostrarem un tipus de fitxer de text important, que són els fitxers de propietats. Aquests fitxers emmagatzemen, com ja sabeu, diverses propietats que s'utilitzen durant l'execució del programa. Quan el programa s'inicia, carrega aquestes propietats i ajusta diverses opcions. Exemples d'aquests fitxers són <code>my.conf</code> a MySQL, <code>php.ini</code> a PHP, etc.</p>
