@@ -1784,7 +1784,7 @@
 <span class="normal"><a href="#__codelineno-3-10">10</a></span>
 <span class="normal"><a href="#__codelineno-3-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">String</span><span class="w"> </span><span class="n">table</span><span class="o">=</span><span class="p">...;</span><span class="w"> </span><span class="c1">// we set the name of an existing table</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">ResultSet</span><span class="w"> </span><span class="n">columnes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dbmd</span><span class="p">.</span><span class="na">getColumns</span><span class="p">(</span><span class="s">&quot;BDJocs&quot;</span><span class="p">,</span><span class="kc">null</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">taula</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Colors</span><span class="p">.</span><span class="na">Bright_White</span><span class="o">+</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%-25s %-15 s%-15s&quot;</span><span class="p">,</span><span class="s">&quot;Atribut/Claus&quot;</span><span class="p">,</span><span class="s">&quot;Tipus&quot;</span><span class="p">,</span><span class="s">&quot;Pot ser nul?&quot;</span><span class="o">+</span><span class="n">Colors</span><span class="p">.</span><span class="na">reset</span><span class="p">));</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Colors</span><span class="p">.</span><span class="na">Bright_White</span><span class="o">+</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%-25s %-15s %-15s&quot;</span><span class="p">,</span><span class="s">&quot;Atribut/Claus&quot;</span><span class="p">,</span><span class="s">&quot;Tipus&quot;</span><span class="p">,</span><span class="s">&quot;Pot ser nul?&quot;</span><span class="o">+</span><span class="n">Colors</span><span class="p">.</span><span class="na">reset</span><span class="p">));</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4"></a>
 <a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">columnes</span><span class="p">.</span><span class="na">next</span><span class="p">()){</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">columnName</span><span class="o">=</span><span class="n">columnes</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
@@ -1807,6 +1807,12 @@
 <blockquote>
 <p>Teniu tot l'exemple a la carpeta <code>DatabaseMeta</code> de l'aplicació d'exemple i al següent <a href="../DatabaseMetadataAppApp.java">enllaç</a>.</p>
 </blockquote>
+<div class="admonition note">
+<p class="admonition-title">Amplia el codi</p>
+<ul>
+<li>Amplia el codi anterior per a mostrar la clau primària de la taula consultada.</li>
+</ul>
+</div>
 
 
 
