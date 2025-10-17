@@ -1926,8 +1926,7 @@
 </ul>
 <h2 id="2-recovering-objects">2. Recovering objects</h2>
 <p>From now, the samples are based on this schema, that you will find here <a href="../../../UD3_Hibernate/DocenciaConsultas.sql">Docencia</a></p>
-<center>![Docencia for HQL](./img/DocenciaHQL.png){width=90%}</center>
-
+<p><a class="glightbox" href="../../../UD3_Hibernate/img/DocenciaHQL.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Docencia for HQL" src="../../../UD3_Hibernate/img/DocenciaHQL.png" width="90%" /></a></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Now is a good moment to try to do a reverse engineering approach to build your project from database.</p>
@@ -1969,8 +1968,7 @@
 <a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">        </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>If we want to filter or to search for any student, we need to use <code>where</code> clause, as a normal SQL query. Expressions can be:</p>
-<center>![Where](./img/Where.png){width=90%}</center>
-
+<p><a class="glightbox" href="../../../UD3_Hibernate/img/Where.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Where" src="../../../UD3_Hibernate/img/Where.png" width="90%" /></a></p>
 <p>When the <code>where</code> filter only one object, we could store it in a List, ant then access it, but is better to get the object directly, as follows:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
@@ -2202,8 +2200,7 @@ Simply we create a new object, set its values, via setters or all argument's con
 <p>As a final comment in this section, remember what was said previously: in the manipulation of objects (deletions, modifications, etc.) we have enough tools to do it without HQL queries. These queries are more suitable for processing large volumes of information without uploading said information to our program to have it processed.</p>
 <h2 id="6-appendix-objects-status">6. Appendix, Objects status</h2>
 <p>As we have said along this unit, objects are loaded and tracked by the session manager. Each object could have a state inside the session, and it is interesting to now all possibilities. In this picture, you can see all different status, and the method to change the object status.</p>
-<center>![Object Status](./img/ObjectStatus.png){width=90%}</center>
-
+<p><a class="glightbox" href="../../../UD3_Hibernate/img/ObjectStatus.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Object Status" src="../../../UD3_Hibernate/img/ObjectStatus.png" width="90%" /></a></p>
 <ul>
 <li><strong>transient</strong> → The object has identity (exist in memory), but it has not a persistent identity, or primary key.</li>
 <li><strong>persistent</strong> → The object has been marked to be saved (persisted), and the memory identity is related to the database identity. When we load an object from the database this is the initial status.</li>

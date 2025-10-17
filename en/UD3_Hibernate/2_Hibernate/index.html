@@ -1798,13 +1798,11 @@
   <h1>Introduccio a Hibernate</h1>
 
 <h2 id="1-hibernate">1. Hibernate</h2>
-<center>![Hibernate](./img/Hibernate.png){width=85%}</center>
-
+<p><a class="glightbox" href="../../../UD3_Hibernate/img/Hibernate.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Hibernate" src="../../../UD3_Hibernate/img/Hibernate.png" width="85%" /></a></p>
 <p><a href="https://hibernate.org">Hibernate</a> is an ORM framework for Java, which facilitates the mapping of attributes between a relational database and the object model of our application through XML files or annotations in the entity beans. It is free software distributed under the GPL 2.0 license, so it can be used in commercial applications.</p>
 <p>The main function of Hibernate will be to offer the programmer the tools to detail his data model and the relationships between them, so that it is the ORM itself that interacts with the database, while the developer is dedicated to manipulating objects.</p>
 <p>In addition, it offers a query language, called HQL (Hibernate Query Language), so that it is the ORM itself that translates this language to that of each database engine, thus maintaining portability at the expense of a slight increase in time of execution.</p>
-<center>![Hibernate](./img/Hibernate-arquitecture.png){width=85%}</center>
-
+<p><a class="glightbox" href="../../../UD3_Hibernate/img/Hibernate-arquitecture.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Hibernate" src="../../../UD3_Hibernate/img/Hibernate-arquitecture.png" width="85%" /></a></p>
 <p>When objects are created, they are volatile or transient (will be destructed when the application finish). When we want to store them with Hibernate, they are tracked with one mechanism called Session. The objects loaded from databases are tracked too. If we want, we could finish the tracking, deleting the object when we do not need more.</p>
 <p>Moreover, a query language is provided, HQL or <strong>Hibernate Query Language</strong>, based on OQL. The underlying part of the session, as can be seen, allows the use of various technologies, including JDBC to connect to the necessary DBMS.</p>
 <h2 id="2-configuration">2. Configuration</h2>

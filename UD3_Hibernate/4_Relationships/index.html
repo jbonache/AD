@@ -1720,8 +1720,7 @@
 <p>A partir d'ara, podríem estudiar totes les representacions amb JPA.</p>
 <h2 id="2-relacions-un-a-un">2. Relacions Un a Un</h2>
 <p>Per a l'explicació dels exemples, veurem el disseny i la implementació a la base de dades de cada cas i com es veu a Hibernate. Per a aquest exemple representarem una relació 1:1 entre Grup i Professor, on es pot veure que un Grup té un Tutor, i un Tutor només pot tutoritzar un Grup.</p>
-<center>![one_to_one](./img/1_1.png){width=90%}</center>
-
+<p><a class="glightbox" href="../img/1_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="one_to_one" src="../img/1_1.png" width="90%" /></a></p>
 <p>Primerament, la classe que és apuntada per la clau forana. Molt fàcil, perquè no necessitem fer res.</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
@@ -1857,8 +1856,7 @@ Tingueu en compte que la classe <code>Grupo</code> conté un camp anomenat <code
 <p>Amb <code>mappedBy="tutor"</code> estem dient que a la classe <code>Grupo</code> existeix un camp anomenat <code>tutor</code> amb tota la informació sobre la relació. Tingueu en compte que no s'afegiran camps addicionals a <code>Profesor</code>, perquè la informació sobre la relació es troba a la taula <code>Grupo</code>.</p>
 <h2 id="3-un-a-molts">3. Un a Molts</h2>
 <p>Per a aquesta explicació començarem amb el següent model, en el qual un <strong>Llibre</strong> té un <strong>Autor</strong> que l'ha escrit, i un Autor pot haver escrit diversos Llibres. En l'esquema relacional, la relació és des de <code>idAutor</code> en Llibres, que és clau forana a la taula Autor (ID).</p>
-<center>![one_to_many](./img/1_N.png){width=90%}</center>
-
+<p><a class="glightbox" href="../img/1_N.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="one_to_many" src="../img/1_N.png" width="90%" /></a></p>
 <p>Primer, podem decidir qui és el propietari de la relació. Realment no importa, però en diversos dissenys és molt clar, per exemple entre <code>Estudiant</code> i <code>Email</code>, on òbviament el propietari és <code>Estudiant</code>. Normalment hauria de ser la classe amb cardinalitat <strong>molts</strong> el propietari. Vegem l'exemple.</p>
 <p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
@@ -1987,8 +1985,7 @@ En aquest exemple, un <code>Llibre</code> té un autor (únic). Ho implementem e
 </div>
 <p>Per a la segona part, aquest tutorial explica com fer-ho <a href="https://thorben-janssen.com/hibernate-tip-many-to-many-association-with-additional-attributes/">N_M amb atributs</a>. És molt recomanable implementar-ne un exemple.</p>
 <p>Anem a modelar el cas típic d'un Professor que imparteix diversos Mòduls, els quals poden ser impartits per diversos professors. L'esquema és el següent:</p>
-<center>![many to many](./img/N_M.png){width=90%}</center>
-
+<p><a class="glightbox" href="../img/N_M.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="many to many" src="../img/N_M.png" width="90%" /></a></p>
 <p>Com podem veure, la típica taula central de la relació <code>N:M</code> es manté. Com es va esmentar anteriorment, la taula Docència no existirà en el model OO, ja que només serveix per relacionar els elements.</p>
 <p>Les classes Mòdul i Professor són les següents (només es mostra la part relacionada amb la relació) triant en aquest cas Professor com el propietari de la relació:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
