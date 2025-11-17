@@ -1005,15 +1005,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#5-exercici" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Exercici
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1638,15 +1629,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#5-exercici" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Exercici
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1925,6 +1907,29 @@
 <li>Per definir els camps de la base de dades, hem d'utilitzar <code>@Column</code>. Pots especificar més opcions, especialment si el nom de la columna és diferent del nom del camp. Consulta la següent imatge per a més opcions. Una opció interessant és establir un valor generat automàticament amb <code>@GeneratedValue</code>. Si no especifiques l'opció <code>name</code>, es suposa que és el mateix.</li>
 <li>Per marcar un camp com a clau primària, necessites <code>@Id</code>. En aquest cas, no cal que ho especifiquis amb <code>@Column</code>.</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Ara adapta la teua PRÀCTICA 2 a HIBERNATE</p>
+<p>Fes una còpia de la pràctica 2 de la unitat anterior i comença a adaptar-la a Hibernate:  </p>
+<ul>
+<li>Crea una classe associada al teu tema (Persona, Jugador, Producte, etc...)  </li>
+<li>Configura l'arxiu <strong>hibernate.cfg.xml</strong>  </li>
+<li>Prova a <strong>importar</strong> dades a partir d'instàncies  </li>
+<li>Prova a <strong>modificar</strong> registres  </li>
+<li>Prova a <strong>eliminar</strong> registres  </li>
+<li>Quan aprengues HQL podràs adaptar les teues consultes  </li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Ara pensant en relacions</p>
+<p>Realitza la següent tasca:</p>
+<ul>
+<li>Crea un projecte Maven i afegeix totes les dependències que necessitis.  </li>
+<li>Crea dues classes per tu mateix, però pensant que estaran relacionades en un futur. Per exemple, Professor i Tema, o Conductor i Cotxe, o Mascota i Veterinari. En aquest moment no cal que creïs cap relació.  </li>
+<li>Cada classe ha de tenir una ID i almenys 4 camps, amb diversos tipus de dades (no cal que tots siguin camps de tipus String).  </li>
+<li>Mapeja les dues classes  </li>
+<li>Crea una aplicació principal on demanis a l'usuari les dades i les emmagatzemis a la mateixa base de dades.  </li>
+</ul>
+</div>
 <h2 id="4-components">4. Components</h2>
 <p>Anem a revisar un patró de disseny especial, que és l'<strong>agregació</strong>. Aquest patró s'utilitza quan necessitem una entitat que només té sentit dins d'una altra entitat, per exemple, una roda no té sentit fora d'un cotxe. Si l'entitat pot existir per si sola, és quan utilitzem una <strong>relació</strong>, i ho estudiarem a la següent secció.</p>
 <p>La classe agregada també es coneix com a <strong>component</strong>.</p>
@@ -2070,19 +2075,6 @@
 <p class="admonition-title">Però...</p>
 <p>Aquesta situació no és habitual, però és important resoldre-la quan sigui necessari.</p>
 </div>
-<h2 id="5-exercici">5. Exercici</h2>
-<p>Realitza la següent tasca:</p>
-<ul>
-<li>Crea un projecte Maven i afegeix totes les dependències que necessitis.</li>
-<li>Crea dues classes per tu mateix, però pensant que estaran relacionades en un futur. Per exemple, Professor i Tema, o Conductor i Cotxe, o Mascota i Veterinari. En aquest moment no cal que creïs cap relació.</li>
-<li>Cada classe ha de tenir una ID i almenys 4 camps, amb diversos tipus de dades (no cal que tots siguin camps de tipus String).</li>
-<li>Mapeja les dues classes:<ul>
-<li>Una amb un fitxer XML extern.</li>
-<li>L'altra amb anotacions JPA.</li>
-</ul>
-</li>
-<li>Crea una aplicació principal on demanis a l'usuari les dades i les emmagatzemis (i les desis) a la mateixa base de dades.</li>
-</ul>
 
 
 
