@@ -1889,68 +1889,44 @@
 <li>Retornarà el resultat encapsulat en objectes o de manera composta.</li>
 </ul>
 <p>Depenent de la resposta obtinguda, en el segon pas triarem una de les quatre opcions que veiem a continuació.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span>
-<span class="normal"><a href="#__codelineno-0-12">12</a></span>
-<span class="normal"><a href="#__codelineno-0-13">13</a></span>
-<span class="normal"><a href="#__codelineno-0-14">14</a></span>
-<span class="normal"><a href="#__codelineno-0-15">15</a></span>
-<span class="normal"><a href="#__codelineno-0-16">16</a></span>
-<span class="normal"><a href="#__codelineno-0-17">17</a></span>
-<span class="normal"><a href="#__codelineno-0-18">18</a></span>
-<span class="normal"><a href="#__codelineno-0-19">19</a></span>
-<span class="normal"><a href="#__codelineno-0-20">20</a></span>
-<span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span>
-<span class="normal"><a href="#__codelineno-0-23">23</a></span>
-<span class="normal"><a href="#__codelineno-0-24">24</a></span>
-<span class="normal"><a href="#__codelineno-0-25">25</a></span>
-<span class="normal"><a href="#__codelineno-0-26">26</a></span>
-<span class="normal"><a href="#__codelineno-0-27">27</a></span>
-<span class="normal"><a href="#__codelineno-0-28">28</a></span>
-<span class="normal"><a href="#__codelineno-0-29">29</a></span>
-<span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1">// Pas 1. Consulta HQL &#39;preparada&#39;</span>
+<p><strong>Pas 1. Consulta HQL 'preparada'</strong></p>
+<p>1.1. Query que retorna objectes sencers (Persona, Alumne, Professor, etc...)
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="w">  </span><span class="n">Query</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;HQL statement&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w"> </span><span class="c1">// a partir de Hibernate 6, la Query és tipada</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1">// 1.1. Query que retorna objectes sencers (Persona, Alumne, Professor, etc...)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="n">Query</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;HQL statement&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w"> </span><span class="c1">// a partir de Hibernate 6, la Query és tipada</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">  </span><span class="n">Query</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;HQL statement&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// abans de Hibernat 6 es feia així, no era tipada</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="c1">// 1.2. Query que retorna un array d&#39;objectes (nom, edat) , un o molts conjunts</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">  </span><span class="n">Query</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">[]&gt;</span><span class="w"> </span><span class="n">q2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;HQL statement&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="c1">// Pas 2: Lectura de resultats obtesos, depenent si és un sol resultat o en són més d&#39;un</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="c1">// 2.1 Un únic objecte (exemple: tota la info de l&#39;alumne &quot;José luis Lopez Vazquez&quot; )</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">  </span><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">uniqueResult</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 5, però es manté amb Hibernate 6</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">  </span><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">getSingleResult</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 6 &gt;&gt; Retornarà una exepció si no hi ha resultat</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">  </span><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">getSingleResultOrNull</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 6 &gt;&gt; Tornarà null si no hi ha resultat</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="c1">// 2.2. Llista d’objectes sencers (exemple: tota la info dels alumnes que son de Tavernes)</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">  </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">resultsObjects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">getResultList</span><span class="p">();</span><span class="w">  </span><span class="c1">// Hibernate 6 (també serveix si sols hi ha un resultat, cas 2.1 d&#39;abans)</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">  </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">resultsObjects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 5,  però es manté amb Hibernate 6</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="c1">// 2.3. Resultats mixtos (arrays d’objectes) (exemple: el nom i l&#39;edat de tots els alumnes de Tavernes)</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">  </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="w"> </span><span class="o">[]&gt;</span><span class="w"> </span><span class="n">mixedresults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q2</span><span class="p">.</span><span class="na">getResultList</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 6</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">  </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="w"> </span><span class="o">[]&gt;</span><span class="w"> </span><span class="n">mixedresults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q2</span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 5,  però es manté amb Hibernate 6</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="c1">// 2.4 Un únic resultat compost (exemple: la població, la direcció i el telèfon de l&#39;alummne &quot;José luis Lopez Vazquez&quot;)</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">  </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q2</span><span class="p">.</span><span class="na">uniqueResult</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 5, però es manté amb Hibernate 6</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">  </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">getSingleResult</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 6 &gt;&gt; Retornarà una exepció si no hi ha resultat</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">  </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">getSingleResultOrNull</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 6 &gt;&gt; Tornarà null si no hi ha resultat</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="mf">3.</span><span class="w"> </span><span class="c1">// Processament dels resultats</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="n">Query</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;HQL statement&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// abans de Hibernat 6 es feia així, no era tipada</span>
+</code></pre></div></td></tr></table></div></p>
+<p>1.2. Query que retorna un array d'objectes (nom, edat) , un o molts conjunts
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="w">  </span><span class="n">Query</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">[]&gt;</span><span class="w"> </span><span class="n">q2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;HQL statement&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Pas 2: Lectura de resultats obtesos, depenent si és un sol resultat o en són més d'un</strong></p>
+<p>2.1 Un únic objecte (exemple: tota la info de l'alumne "José luis Lopez Vazquez" o amb id=1)
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="w">  </span><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">uniqueResult</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 5, però es manté amb Hibernate 6</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">  </span><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">getSingleResult</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 6 &gt;&gt; Retornarà una exepció si no hi ha resultat</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">getSingleResultOrNull</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 6 &gt;&gt; Tornarà null si no hi ha resultat</span>
+</code></pre></div></td></tr></table></div></p>
+<p>2.2. Llista d’objectes sencers (exemple: tota la info dels alumnes que son de Tavernes)
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="w">  </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">resultsObjects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">getResultList</span><span class="p">();</span><span class="w">  </span><span class="c1">// Hibernate 6 (també serveix si sols hi ha un resultat, cas 2.1 d&#39;abans)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">  </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">resultsObjects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 5,  però es manté amb Hibernate 6</span>
+</code></pre></div></td></tr></table></div></p>
+<p>2.3. Resultats mixtos (arrays d’objectes) (exemple: el nom i l'edat de tots els alumnes de Tavernes)
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="w">  </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="w"> </span><span class="o">[]&gt;</span><span class="w"> </span><span class="n">mixedresults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q2</span><span class="p">.</span><span class="na">getResultList</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 6</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">  </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="w"> </span><span class="o">[]&gt;</span><span class="w"> </span><span class="n">mixedresults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q2</span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 5,  però es manté amb Hibernate 6</span>
 </code></pre></div></td></tr></table></div>
+2.4 Un únic resultat compost (exemple: la població, la direcció i el telèfon de l'alummne "José luis Lopez Vazquez" o amb id=1)
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="w">  </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q2</span><span class="p">.</span><span class="na">uniqueResult</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 5, però es manté amb Hibernate 6</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">  </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">getSingleResult</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 6 &gt;&gt; Retornarà una exepció si no hi ha resultat</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">  </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">getSingleResultOrNull</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 6 &gt;&gt; Tornarà null si no hi ha resultat</span>
+</code></pre></div></td></tr></table></div>
+<strong>Pas 3. Processament dels resultats</strong><br />
+...</p>
 <div class="admonition note">
 <p class="admonition-title">Apunta...</p>
 <ul>
@@ -1984,62 +1960,56 @@
 <h3 id="31-obtenint-objectes-simples">3.1. Obtenint objectes simples</h3>
 <p>Aquestes consultes són les que volem recuperar un objecte o una col·lecció d'aquests de la base de dades (una o més files, en comparació amb ResultSet). Cada resultat és un únic objecte d'una taula de la base de dades. Es caracteritzaran perquè la paraula Select pot no aparèixer o simplement indicar l'àlies de la classe que tenim. Vegem els exemples.</p>
 <p>El següent exemple mostra tots els estudiants:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-1-10">10</a></span>
-<span class="normal"><a href="#__codelineno-1-11">11</a></span>
-<span class="normal"><a href="#__codelineno-1-12">12</a></span>
-<span class="normal"><a href="#__codelineno-1-13">13</a></span>
-<span class="normal"><a href="#__codelineno-1-14">14</a></span>
-<span class="normal"><a href="#__codelineno-1-15">15</a></span>
-<span class="normal"><a href="#__codelineno-1-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">// complete and polite</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">Query</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="o">=</span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;Select a from Alumno a&quot;</span><span class="p">);</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1">// OR</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1">// in a quick way</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">Query</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="o">=</span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;from Alumno&quot;</span><span class="p">);</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1">// quickest (without type)</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">Query</span><span class="w"> </span><span class="n">q</span><span class="o">=</span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;from Alumno&quot;</span><span class="p">);</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span><span class="w"> </span><span class="n">losAlumnos</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="na">list</span><span class="p">();</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Alumno</span><span class="w"> </span><span class="n">alumno</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">losAlumnos</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">alumno</span><span class="p">);</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">        </span><span class="p">}</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1">// complete and polite</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">Query</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="o">=</span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;Select a from Alumno a&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Alumno</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1">// OR</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1">// in a quick way</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="n">Query</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="o">=</span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;from Alumno&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Alumno</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">losAlumnos</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="na">list</span><span class="p">();</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Alumno</span><span class="w"> </span><span class="n">alumno</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">losAlumnos</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">alumno</span><span class="p">);</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">        </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Si volem filtrar o cercar qualsevol estudiant, necessitem utilitzar la clàusula <code>where</code>, com en una consulta SQL normal. Les expressions poden ser:</p>
 <p><a class="glightbox" href="../img/Where.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Where" src="../img/Where.png" width="90%" /></a></p>
 <p>Quan el filtre <code>where</code> només retorna un objecte, podríem emmagatzemar-lo en una llista i després accedir-hi, però és millor obtenir l'objecte directament, com segueix:</p>
-<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
-<span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">Query</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;Select a from Alumno a where a.idAlumno=1&quot;</span><span class="p">);</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">Alumno</span><span class="w"> </span><span class="n">alumno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">uniqueResult</span><span class="p">();</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">alumno</span><span class="p">);</span>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">Query</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;Select a from Alumno a where a.idAlumno=1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Alumno</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">Alumno</span><span class="w"> </span><span class="n">alumno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">uniqueResult</span><span class="p">();</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">alumno</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 tingues en compte que creem la nostra consulta amb l'operador diamant, indicant que retornarà un estudiant. Aleshores, la consulta retorna òbviament l'estudiant. L'alternativa és fer un càsting de l'objecte retornat de <code>uniqueResult</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">Query</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;Select a from Alumno a where a.idAlumno=1&quot;</span><span class="p">);</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">Alumno</span><span class="w"> </span><span class="n">alumno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Alumno</span><span class="p">)</span><span class="n">q</span><span class="p">.</span><span class="na">uniqueResult</span><span class="p">();</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">alumno</span><span class="p">);</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">Query</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;Select a from Alumno a where a.idAlumno=1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Alumno</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">Alumno</span><span class="w"> </span><span class="n">alumno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Alumno</span><span class="p">)</span><span class="n">q</span><span class="p">.</span><span class="na">uniqueResult</span><span class="p">();</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">alumno</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <div class="admonition warning">
 <p class="admonition-title">Atenció</p>
 <p>Tingueu cura quan recupereu un objecte únic i la consulta en retorna diversos.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
-<span class="normal"><a href="#__codelineno-4-2">2</a></span>
-<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">Query</span><span class="w"> </span><span class="n">q</span><span class="o">=</span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;Select a from Student a where a.age=24&quot;</span><span class="p">);</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">Alumno</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="p">(</span><span class="n">Student</span><span class="p">)</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">uniqueResult</span><span class="p">();</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1">// org.hibernate.NonUniqueResultException: query did not return a unique result: 2</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">Query</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="o">=</span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;Select a from Student a where a.age=24&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Alumno</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">Alumno</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="p">(</span><span class="n">Student</span><span class="p">)</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">uniqueResult</span><span class="p">();</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="c1">// org.hibernate.NonUniqueResultException: query did not return a unique result: 2</span>
 </code></pre></div></td></tr></table></div>
 </div>
 <p>Quan tenim molts resultats, no és convenient recuperar-los tots alhora, sinó accedir-hi de 10 en 10 o similar, igual que les pàgines de cerca de Google o Amazon. Podem aconseguir-ho llançant consultes més petites repetidament, aplicant a la consulta:</p>
@@ -2050,42 +2020,42 @@ tingues en compte que creem la nostra consulta amb l'operador diamant, indicant 
 <p>Amb un algorisme dissenyat adequadament, podem fer un bucle, desplaçant l'inici en cada iteració, incrementant-lo pel nombre de files recuperades en l'iteració anterior. Això implicaria moltes consultes petites en lloc d'una de gran.</p>
 <h3 id="32-obtenint-objectes-compostos">3.2. Obtenint objectes compostos</h3>
 <p>Si necessitem obtenir més (o menys) dades que un objecte sencer, ho hem de fer a la part <code>select</code> de la clàusula, però quan obtenim les dades no les podem emmagatzemar en un Object. Per aquesta raó, i utilitzant la propietat de polimorfisme de Java, obtenim els resultats en un array genèric d'objectes. Per tant, hem de ser molt curosos amb el tipus de cada cel·la, així com la mida d'aquest array, ja que estarà fortament lligat a la consulta en si. Vegem la següent consulta: <em>Mostra el nom i l'edat dels estudiants</em>:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-5-10">10</a></span>
-<span class="normal"><a href="#__codelineno-5-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">Query</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;Select a.nombre,a.edad from Alumno a&quot;</span><span class="p">);</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">[]&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">list</span><span class="p">();</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">objects</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Alumno: &quot;</span><span class="p">);</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">objects</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">objects</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">);</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="p">}</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">Query</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;Select a.nombre,a.edad from Alumno a&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Alumno</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">[]&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">list</span><span class="p">();</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">objects</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Alumno: &quot;</span><span class="p">);</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">objects</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">objects</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">);</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Tingues en compte que si només vols imprimir la informació, no cal fer cap treball extra, ja que (gairebé) tots els objectes es poden convertir a String. Si vols utilitzar-los d'una altra manera, tin molt de compte en convertir-los al tipus de dada adequat.</p>
 <p><strong>Col·leccions</strong></p>
 <p>Anem a comprovar el nom dels estudiants i quants exàmens han fet. Aquesta informació es troba al conjunt d'Exàmens, així que necessitarem manipular aquesta col·lecció:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span>
-<span class="normal"><a href="#__codelineno-6-4">4</a></span>
-<span class="normal"><a href="#__codelineno-6-5">5</a></span>
-<span class="normal"><a href="#__codelineno-6-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">Query</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;Select a.nombre,size(a.examens) from Alumno a&quot;</span><span class="p">);</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">[]&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">list</span><span class="p">();</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">alu</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Alumno: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">alu</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; has done &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">alu</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; exams.&quot;</span><span class="p">);</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="p">}</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span>
+<span class="normal"><a href="#__codelineno-11-5">5</a></span>
+<span class="normal"><a href="#__codelineno-11-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">Query</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;Select a.nombre,size(a.examens) from Alumno a&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Alumno</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">[]&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">list</span><span class="p">();</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">alu</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Alumno: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">alu</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; has done &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">alu</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; exams.&quot;</span><span class="p">);</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Com podeu veure, hem aplicat la funció <code>size()</code> a la col·lecció per veure la seva mida. Per tant, podem aplicar:</p>
 <ul>
@@ -2099,19 +2069,19 @@ tingues en compte que creem la nostra consulta amb l'operador diamant, indicant 
 <p>La gestió dels paràmetres es realitza de la mateixa manera que amb les sentències preparades (<code>preparedStatements</code>), i es pot fer mitjançant paràmetres posicionals o nominals. Vegem alguns exemples:</p>
 <h3 id="41-parametres-posicionals">4.1. Paràmetres posicionals</h3>
 <p>Hem d'afegir espais reservats dins de la nostra consulta, però en lloc de <code>?</code> afegim un número després del signe d'interrogació. Després hem de configurar el paràmetre segons el número d'espai reservat que hem establert abans, de la següent manera:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
-<span class="normal"><a href="#__codelineno-7-2">2</a></span>
-<span class="normal"><a href="#__codelineno-7-3">3</a></span>
-<span class="normal"><a href="#__codelineno-7-4">4</a></span>
-<span class="normal"><a href="#__codelineno-7-5">5</a></span>
-<span class="normal"><a href="#__codelineno-7-6">6</a></span>
-<span class="normal"><a href="#__codelineno-7-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">Query</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;Select a from Alumno a where a.edad=?1&quot;</span><span class="p">);</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">q</span><span class="p">.</span><span class="na">setParameter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">);</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">losAlumnos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">list</span><span class="p">();</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a>
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Alumno</span><span class="w"> </span><span class="n">alumno</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">losAlumnos</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">alumno</span><span class="p">);</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="p">}</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">5</a></span>
+<span class="normal"><a href="#__codelineno-12-6">6</a></span>
+<span class="normal"><a href="#__codelineno-12-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">Query</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;Select a from Alumno a where a.edad=?1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Alumno</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="n">q</span><span class="p">.</span><span class="na">setParameter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">);</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">losAlumnos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">list</span><span class="p">();</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Alumno</span><span class="w"> </span><span class="n">alumno</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">losAlumnos</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">alumno</span><span class="p">);</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <div class="admonition tip">
 <p class="admonition-title">Consell</p>
@@ -2124,117 +2094,117 @@ tingues en compte que creem la nostra consulta amb l'operador diamant, indicant 
 <p>Fora de la definició de la classe, es crearà una col·lecció <code>@NamedQueries</code>, que contindrà un array (indicat per claus) d'elements <code>@NamedQuery</code>, cadascun d'ells amb un <strong>nom</strong> i una definició de <strong>consulta</strong>.</p>
 <p>Per invocar-les, en lloc de crear un objecte <code>Query</code>, el crearem a través d'una <code>NamedQuery</code>, indicant el seu nom i assignant paràmetres, si n'hi ha.</p>
 <p>A la classe Alumno:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-8-10">10</a></span>
-<span class="normal"><a href="#__codelineno-8-11">11</a></span>
-<span class="normal"><a href="#__codelineno-8-12">12</a></span>
-<span class="normal"><a href="#__codelineno-8-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nd">@Entity</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="nd">@Table</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Alumno&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">catalog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;DocenciaConsultas&quot;</span><span class="p">)</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="nd">@NamedQueries</span><span class="p">({</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span><span class="nd">@NamedQuery</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;Repetidores&quot;</span><span class="p">,</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">            </span><span class="n">query</span><span class="o">=</span><span class="s">&quot;select a from Student a where a.repeater=true &quot;</span><span class="p">),</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">    </span><span class="nd">@NamedQuery</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;AlumnosEntre&quot;</span><span class="p">,</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">            </span><span class="n">query</span><span class="o">=</span><span class="s">&quot;select a from Student a where a.age between :min and :max&quot;</span><span class="p">),</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">    </span><span class="nd">@NamedQuery</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;AlumnosDescAge&quot;</span><span class="p">,</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">            </span><span class="n">query</span><span class="o">=</span><span class="s">&quot;select a from Student a order by a.age desc&quot;</span><span class="p">)</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="p">})</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Alumno</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">Serializable</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">serialVersionUID</span><span class="o">=</span><span class="mi">13L</span><span class="p">;</span>
-<a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">  </span><span class="p">...</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span>
+<span class="normal"><a href="#__codelineno-13-12">12</a></span>
+<span class="normal"><a href="#__codelineno-13-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="nd">@Entity</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="nd">@Table</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Alumno&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">catalog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;DocenciaConsultas&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="nd">@NamedQueries</span><span class="p">({</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="nd">@NamedQuery</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;Repetidores&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">            </span><span class="n">query</span><span class="o">=</span><span class="s">&quot;select a from Student a where a.repeater=true &quot;</span><span class="p">),</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="w">    </span><span class="nd">@NamedQuery</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;AlumnosEntre&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">            </span><span class="n">query</span><span class="o">=</span><span class="s">&quot;select a from Student a where a.age between :min and :max&quot;</span><span class="p">),</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="w">    </span><span class="nd">@NamedQuery</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;AlumnosDescAge&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="w">            </span><span class="n">query</span><span class="o">=</span><span class="s">&quot;select a from Student a order by a.age desc&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="p">})</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Alumno</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">Serializable</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">serialVersionUID</span><span class="o">=</span><span class="mi">13L</span><span class="p">;</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="w">  </span><span class="p">...</span>
 </code></pre></div></td></tr></table></div>
 <p>Quan volem utilitzar-lo, en lloc de crear una <code>Query</code> hem de crear una <code>NamedQuery</code>, de la següent manera:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-9-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">Query</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">laSesion</span><span class="p">.</span><span class="na">createNamedQuery</span><span class="p">(</span><span class="s">&quot;Repetidores&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Alumno</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Alumnos repetidores: &quot;</span><span class="p">);</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">losAlumnos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">list</span><span class="p">();</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4"></a>
-<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">laSesion</span><span class="p">.</span><span class="na">createNamedQuery</span><span class="p">(</span><span class="s">&quot;AlumnosEntre&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Alumno</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="n">q</span><span class="p">.</span><span class="na">setParameter</span><span class="p">(</span><span class="s">&quot;min&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">);</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="n">q</span><span class="p">.</span><span class="na">setParameter</span><span class="p">(</span><span class="s">&quot;max&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">28</span><span class="p">);</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8"></a>
-<a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">laSesion</span><span class="p">.</span><span class="na">createNamedQuery</span><span class="p">(</span><span class="s">&quot;AlumnosDescAge&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Alumno</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Alumnos de mayor a menor: &quot;</span><span class="p">);</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-14-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-14-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-14-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-14-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-14-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">Query</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">laSesion</span><span class="p">.</span><span class="na">createNamedQuery</span><span class="p">(</span><span class="s">&quot;Repetidores&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Alumno</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Alumnos repetidores: &quot;</span><span class="p">);</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">losAlumnos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">list</span><span class="p">();</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">laSesion</span><span class="p">.</span><span class="na">createNamedQuery</span><span class="p">(</span><span class="s">&quot;AlumnosEntre&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Alumno</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="n">q</span><span class="p">.</span><span class="na">setParameter</span><span class="p">(</span><span class="s">&quot;min&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">);</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="n">q</span><span class="p">.</span><span class="na">setParameter</span><span class="p">(</span><span class="s">&quot;max&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">28</span><span class="p">);</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a>
+<a id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">laSesion</span><span class="p">.</span><span class="na">createNamedQuery</span><span class="p">(</span><span class="s">&quot;AlumnosDescAge&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Alumno</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Alumnos de mayor a menor: &quot;</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="5-crud">5. CRUD</h2>
 <p>Finalment, analitzarem la resta de les operacions CRUD. Cal destacar que aquestes operacions es poden realitzar directament sobre els objectes, per això s'expliquen com a complementàries més que principals.</p>
 <h3 id="51-crear-create-insert">5.1. Crear (Create - Insert)</h3>
 <p>Si volem inserir un nou objecte a la base de dades, és molt fàcil, com podem recordar en les primeres seccions d'aquesta unitat.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
-<span class="normal"><a href="#__codelineno-10-2">2</a></span>
-<span class="normal"><a href="#__codelineno-10-3">3</a></span>
-<span class="normal"><a href="#__codelineno-10-4">4</a></span>
-<span class="normal"><a href="#__codelineno-10-5">5</a></span>
-<span class="normal"><a href="#__codelineno-10-6">6</a></span>
-<span class="normal"><a href="#__codelineno-10-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">Alumno</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">Alumno</span><span class="p">();</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="n">a</span><span class="p">.</span><span class="na">setApellidos</span><span class="p">(</span><span class="s">&quot;Hamilton&quot;</span><span class="p">);</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="n">a</span><span class="p">.</span><span class="na">setNombre</span><span class="p">(</span><span class="s">&quot;Lewis&quot;</span><span class="p">);</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">a</span><span class="p">.</span><span class="na">setEdad</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="n">a</span><span class="p">.</span><span class="na">setRepetidor</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6"></a>
-<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="n">laSesion</span><span class="p">.</span><span class="na">persist</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<p>Simplement creem un nou objecte, establim els seus valors, mitjançant setters o el constructor amb tots els arguments, i finalment l'emmagatzemem a la base de dades amb el mètode <code>persist</code>. Podeu utilitzar <code>save</code> o <code>saveOrUpdate</code> indistintament. Podeu veure algunes diferències entre ells <a href="https://javatute.com/hibernate/difference-between-save-and-persist-in-hibernate/">aquí</a>. Tots dos executen una instrucció <code>insert sql</code>.</p>
-<p>De la mateixa manera que SQL, podríem inserir en una taula amb el resultat d'una consulta, com segueix:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SQL</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">class</span><span class="p">(</span><span class="n">properties</span><span class="p">)</span><span class="w"> </span><span class="n">select_hql</span><span class="p">;</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="52-actualitzacio-update">5.2. Actualització (Update)</h3>
-<p>Per canviar el valor d'una o més propietats d'un objecte, podem carregar l'objecte de la base de dades, canviar els valors mitjançant els mètodes getters i després desar els canvis.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
-<span class="normal"><a href="#__codelineno-12-2">2</a></span>
-<span class="normal"><a href="#__codelineno-12-3">3</a></span>
-<span class="normal"><a href="#__codelineno-12-4">4</a></span>
-<span class="normal"><a href="#__codelineno-12-5">5</a></span>
-<span class="normal"><a href="#__codelineno-12-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">Alumno</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="n">laSesion</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Alumno</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="mi">7L</span><span class="p">);</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="n">a</span><span class="p">.</span><span class="na">setEdad</span><span class="p">(</span><span class="mi">44</span><span class="p">);</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="n">a</span><span class="p">.</span><span class="na">setRepetidor</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4"></a>
-<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="n">laSesion</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<p>Si volem establir una actualització massiva, que afecti diversos registres a la base de dades, podríem utilitzar-ho de la mateixa manera que en SQL:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
-<span class="normal"><a href="#__codelineno-13-2">2</a></span>
-<span class="normal"><a href="#__codelineno-13-3">3</a></span>
-<span class="normal"><a href="#__codelineno-13-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">Query</span><span class="w"> </span><span class="n">q</span><span class="o">=</span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;Update from Alumno a set a.edad=a.edad+1 where a.repetidor=true&quot;</span><span class="p">);</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">howMany</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">();</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3"></a>
-<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">howMany</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; alumnos actualizados&quot;</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="53-eliminacio-delete">5.3. Eliminació (Delete)</h3>
-<p>Com en les seccions anteriors, podríem eliminar un únic objecte o un conjunt de registres que compleixin una condició. En el cas d'un únic objecte, necessitem carregar-lo i després eliminar-lo:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
-<span class="normal"><a href="#__codelineno-14-2">2</a></span>
-<span class="normal"><a href="#__codelineno-14-3">3</a></span>
-<span class="normal"><a href="#__codelineno-14-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">Alumno</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="n">laSesion</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Alumno</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="mi">7L</span><span class="p">);</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">laSesion</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3"></a>
-<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<p>Tingues en compte que l'objecte roman en memòria o fins al final del mètode, però quan la sessió es confirma, l'objecte passarà a estar <code>detached</code>. L'estat <code>detached</code> significa que aquest objecte està fora de qualsevol tipus de seguiment. No tenim la possibilitat de desar o actualitzar aquest objecte de nou.</p>
-<p>Per fer una eliminació massiva, de la mateixa manera que SQL:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
 <span class="normal"><a href="#__codelineno-15-2">2</a></span>
 <span class="normal"><a href="#__codelineno-15-3">3</a></span>
-<span class="normal"><a href="#__codelineno-15-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">Query</span><span class="w"> </span><span class="n">q</span><span class="o">=</span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;delete from Alumno a where a.repetidor=true&quot;</span><span class="p">);</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">howMany</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">();</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3"></a>
-<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">howMany</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; alumnos borrados&quot;</span><span class="p">);</span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span>
+<span class="normal"><a href="#__codelineno-15-5">5</a></span>
+<span class="normal"><a href="#__codelineno-15-6">6</a></span>
+<span class="normal"><a href="#__codelineno-15-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">Alumno</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">Alumno</span><span class="p">();</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="n">a</span><span class="p">.</span><span class="na">setApellidos</span><span class="p">(</span><span class="s">&quot;Hamilton&quot;</span><span class="p">);</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="n">a</span><span class="p">.</span><span class="na">setNombre</span><span class="p">(</span><span class="s">&quot;Lewis&quot;</span><span class="p">);</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="n">a</span><span class="p">.</span><span class="na">setEdad</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="n">a</span><span class="p">.</span><span class="na">setRepetidor</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="n">laSesion</span><span class="p">.</span><span class="na">persist</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>Simplement creem un nou objecte, establim els seus valors, mitjançant setters o el constructor amb tots els arguments, i finalment l'emmagatzemem a la base de dades amb el mètode <code>persist</code>. Podeu utilitzar <code>save</code> o <code>saveOrUpdate</code> indistintament. Podeu veure algunes diferències entre ells <a href="https://javatute.com/hibernate/difference-between-save-and-persist-in-hibernate/">aquí</a>. Tots dos executen una instrucció <code>insert sql</code>.</p>
+<p>De la mateixa manera que SQL, podríem inserir en una taula amb el resultat d'una consulta, com segueix:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SQL</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">class</span><span class="p">(</span><span class="n">properties</span><span class="p">)</span><span class="w"> </span><span class="n">select_hql</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="52-actualitzacio-update">5.2. Actualització (Update)</h3>
+<p>Per canviar el valor d'una o més propietats d'un objecte, podem carregar l'objecte de la base de dades, canviar els valors mitjançant els mètodes getters i després desar els canvis.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span>
+<span class="normal"><a href="#__codelineno-17-4">4</a></span>
+<span class="normal"><a href="#__codelineno-17-5">5</a></span>
+<span class="normal"><a href="#__codelineno-17-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="n">Alumno</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="n">laSesion</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Alumno</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="mi">7L</span><span class="p">);</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="n">a</span><span class="p">.</span><span class="na">setEdad</span><span class="p">(</span><span class="mi">44</span><span class="p">);</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="n">a</span><span class="p">.</span><span class="na">setRepetidor</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="n">laSesion</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>Si volem establir una actualització massiva, que afecti diversos registres a la base de dades, podríem utilitzar-ho de la mateixa manera que en SQL:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">Query</span><span class="w"> </span><span class="n">q</span><span class="o">=</span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;Update from Alumno a set a.edad=a.edad+1 where a.repetidor=true&quot;</span><span class="p">);</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">howMany</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">();</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">howMany</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; alumnos actualizados&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="53-eliminacio-delete">5.3. Eliminació (Delete)</h3>
+<p>Com en les seccions anteriors, podríem eliminar un únic objecte o un conjunt de registres que compleixin una condició. En el cas d'un únic objecte, necessitem carregar-lo i després eliminar-lo:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">Alumno</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="n">laSesion</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Alumno</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="mi">7L</span><span class="p">);</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="n">laSesion</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>Tingues en compte que l'objecte roman en memòria o fins al final del mètode, però quan la sessió es confirma, l'objecte passarà a estar <code>detached</code>. L'estat <code>detached</code> significa que aquest objecte està fora de qualsevol tipus de seguiment. No tenim la possibilitat de desar o actualitzar aquest objecte de nou.</p>
+<p>Per fer una eliminació massiva, de la mateixa manera que SQL:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">Query</span><span class="w"> </span><span class="n">q</span><span class="o">=</span><span class="n">laSesion</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;delete from Alumno a where a.repetidor=true&quot;</span><span class="p">);</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">howMany</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">();</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">howMany</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; alumnos borrados&quot;</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <div class="admonition tip">
 <p class="admonition-title">Consell</p>
