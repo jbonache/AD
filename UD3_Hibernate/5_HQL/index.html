@@ -1869,13 +1869,26 @@
 <li>In <a href="https://docs.jboss.org/hibernate/core/3.6/reference/es-ES/html/queryhql.html">spanish</a></li>
 <li>In <a href="https://docs.jboss.org/hibernate/core/4.3/manual/en-US/html/ch16.html">english</a></li>
 </ul>
-<p>El llenguatge <strong>HQL</strong> (Hibernate Query Language) va néixer amb l'objectiu de preservar el model relacional, ja que és un superset de SQL (extensió de SQL que inclou SQL). La primera consideració és que, per defecte, la seva funcionalitat és recuperar objectes de la base de dades, no taules com fèiem en el llenguatge SQL a través de <code>ResultSet</code>. Les consultes amb HQL es faran des d'una interfície <strong>Query</strong>, que serà el lloc on especificarem què volem obtenir. Opcionalment, podem afegir a la consulta els paràmetres necessaris per a la seva execució, per evitar consultes amb codi dur.</p>
+<p>El llenguatge <strong>HQL</strong> (Hibernate Query Language) va néixer amb l'objectiu de preservar el model relacional, ja que és un superset de SQL (extensió de SQL que inclou SQL). El seu objectiu és permetre consultes expressives mantenint l’abstracció del model d’objectes. Amb HQL les consultes actuen sobre classes i propietats, no sobre taules i columnes, com fèiem en el llenguatge SQL a través de <code>ResultSet</code>. </p>
+<p>Quan fem consultes amb HQL:</p>
+<ul>
+<li>
+<p>Treballem amb entitats (classes Java anotades) i atributs, no amb taules ni columnes.</p>
+</li>
+<li>
+<p>Els resultats s’obtenen normalment com a objectes Java, no com un <code>ResultSet</code>.</p>
+</li>
+<li>
+<p>Les consultes es creen a través d'una interfície Query (Hibernate 5) o org.hibernate.query.Query (a partir d'Hibernate 6).</p>
+</li>
+</ul>
+<p>Com veiem, les consultes amb HQL es faran des d'una interfície <strong>Query</strong>, que serà el lloc on especificarem què volem obtenir. Opcionalment, podem afegir a la consulta els paràmetres necessaris per a la seva execució, per evitar consultes amb codi dur.</p>
 <p>En primer lloc, la consulta serà preparada. En crear-la, hem de tenir en compte dues opcions, amb quatre combinacions possibles:</p>
 <ul>
 <li>Retornarà un resultat o més d'un i,</li>
 <li>Retornarà el resultat encapsulat en objectes o de manera composta.</li>
 </ul>
-<p>Depenent de la resposta obtinguda, en el segon pas triarem una de les quatre opcions vistes a continuació.</p>
+<p>Depenent de la resposta obtinguda, en el segon pas triarem una de les quatre opcions que veiem a continuació.</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
@@ -1886,33 +1899,65 @@
 <span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="mi">1</span><span class="w"> </span><span class="n">Query</span><span class="w"> </span><span class="n">q</span><span class="o">=</span><span class="n">session</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;HQL statement&quot;</span><span class="p">);</span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1">// Pas 1. Consulta HQL &#39;preparada&#39;</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="mf">2.1</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">resultsObjects</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="na">list</span><span class="p">();</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="mf">2.2</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="w"> </span><span class="o">[]&gt;</span><span class="n">mixedresults</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="na">list</span><span class="p">();</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="mf">2.3</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="na">uniqueResult</span><span class="p">();</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="mf">2.4</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">result</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="na">uniqueResult</span><span class="p">();</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1">// 1.1. Query que retorna objectes sencers (Persona, Alumne, Professor, etc...)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="n">Query</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;HQL statement&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w"> </span><span class="c1">// a partir de Hibernate 6, la Query és tipada</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">  </span><span class="n">Query</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;HQL statement&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// abans de Hibernat 6 es feia així, no era tipada</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="c1">// 1.2. Query que retorna un array d&#39;objectes (nom, edat) , un o molts conjunts</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">  </span><span class="n">Query</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">[]&gt;</span><span class="w"> </span><span class="n">q2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;HQL statement&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="mf">1.</span><span class="w"> </span><span class="c1">// process information obtained</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="c1">// Pas 2: Lectura de resultats obtesos, depenent si és un sol resultat o en són més d&#39;un</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="c1">// 2.1 Un únic objecte (exemple: tota la info de l&#39;alumne &quot;José luis Lopez Vazquez&quot; )</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">  </span><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">uniqueResult</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 5, però es manté amb Hibernate 6</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">  </span><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">getSingleResult</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 6 &gt;&gt; Retornarà una exepció si no hi ha resultat</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">  </span><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">getSingleResultOrNull</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 6 &gt;&gt; Tornarà null si no hi ha resultat</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="c1">// 2.2. Llista d’objectes sencers (exemple: tota la info dels alumnes que son de Tavernes)</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">  </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">resultsObjects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">getResultList</span><span class="p">();</span><span class="w">  </span><span class="c1">// Hibernate 6 (també serveix si sols hi ha un resultat, cas 2.1 d&#39;abans)</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">  </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">resultsObjects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 5,  però es manté amb Hibernate 6</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="c1">// 2.3. Resultats mixtos (arrays d’objectes) (exemple: el nom i l&#39;edat de tots els alumnes de Tavernes)</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">  </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="w"> </span><span class="o">[]&gt;</span><span class="w"> </span><span class="n">mixedresults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q2</span><span class="p">.</span><span class="na">getResultList</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 6</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">  </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="w"> </span><span class="o">[]&gt;</span><span class="w"> </span><span class="n">mixedresults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q2</span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 5,  però es manté amb Hibernate 6</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="c1">// 2.4 Un únic resultat compost (exemple: la població, la direcció i el telèfon de l&#39;alummne &quot;José luis Lopez Vazquez&quot;)</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">  </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q2</span><span class="p">.</span><span class="na">uniqueResult</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 5, però es manté amb Hibernate 6</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">  </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">getSingleResult</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 6 &gt;&gt; Retornarà una exepció si no hi ha resultat</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">  </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">getSingleResultOrNull</span><span class="p">();</span><span class="w"> </span><span class="c1">// Hibernate 6 &gt;&gt; Tornarà null si no hi ha resultat</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="mf">3.</span><span class="w"> </span><span class="c1">// Processament dels resultats</span>
 </code></pre></div></td></tr></table></div>
-<ol>
-<li>In first option the query returns a collection of objects (several rows, on object in a row).</li>
-<li>This option return a collection with a composite of objects and another types: for example a Student a number of topics and number of teachers.</li>
-<li>Both last options is when, instead of a collection, the query returns a unique object/composite.</li>
-</ol>
 <div class="admonition note">
-<p class="admonition-title">Apunt...</p>
+<p class="admonition-title">Apunta...</p>
 <ul>
 <li><code>session.createQuery</code> → permet escriure una consulta HQL, amb o sense paràmetres.</li>
-<li>
-<p><code>Query.list()</code> → obté tots els objectes (com una Llista) de la base de dades que satisfan la consulta.</p>
-</li>
-<li>
-<p><code>Query.uniqueResult()</code> → obté un únic objecte de la base de dades.</p>
-</li>
+<li><code>Query.list()</code> i 'Query.getResultList() → obté tots els objectes (com una Llista) de la base de dades que satisfan la consulta.</li>
+<li><code>Query.uniqueResult()</code>, <code>Query.getSingleResult()</code> → obté un únic objecte de la base de dades.</li>
+<li><code>Query.getSingleResultOrNull()</code>  → obté un únic objecte de la base de dades, o Null si no hi ha.</li>
 </ul>
 </div>
 <p>Abans dels detalls, aquí trobaràs algunes idees generals:</p>
