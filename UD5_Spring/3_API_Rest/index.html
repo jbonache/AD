@@ -1376,7 +1376,7 @@
           <li class="md-nav__item">
   <a href="#31-el-model" class="md-nav__link">
     <span class="md-ellipsis">
-      3.1. El model.
+      3.1. El model
     </span>
   </a>
   
@@ -1523,9 +1523,51 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-exercici-completa-el-servidor" class="md-nav__link">
+  <a href="#8-auditoria-automatica-amb-spring-data-jpa-recomanat" class="md-nav__link">
     <span class="md-ellipsis">
-      8. Exercici. Completa el servidor
+      8. Auditoria automàtica amb Spring Data JPA (recomanat)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Auditoria automàtica amb Spring Data JPA (recomanat)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-activar-lauditoria-jpa" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1. Activar l’auditoria JPA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-funcionament" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3. Funcionament
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-configuracio-de-lentitat" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2. Configuració de l’entitat
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-exercici-completa-el-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Exercici. Completa el servidor
     </span>
   </a>
   
@@ -1978,7 +2020,7 @@
           <li class="md-nav__item">
   <a href="#31-el-model" class="md-nav__link">
     <span class="md-ellipsis">
-      3.1. El model.
+      3.1. El model
     </span>
   </a>
   
@@ -2125,9 +2167,51 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-exercici-completa-el-servidor" class="md-nav__link">
+  <a href="#8-auditoria-automatica-amb-spring-data-jpa-recomanat" class="md-nav__link">
     <span class="md-ellipsis">
-      8. Exercici. Completa el servidor
+      8. Auditoria automàtica amb Spring Data JPA (recomanat)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Auditoria automàtica amb Spring Data JPA (recomanat)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-activar-lauditoria-jpa" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1. Activar l’auditoria JPA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-funcionament" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3. Funcionament
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-configuracio-de-lentitat" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2. Configuració de l’entitat
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-exercici-completa-el-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Exercici. Completa el servidor
     </span>
   </a>
   
@@ -2274,7 +2358,7 @@
 <p class="admonition-title">Important</p>
 <p>Totes les opcions d'inicialització de la base de dades es poden trobar a <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.data-initialization">inicialització de la base de dades</a>.</p>
 </div>
-<h3 id="31-el-model">3.1. El model.</h3>
+<h3 id="31-el-model">3.1. El model</h3>
 <p>Anem a utilitzar aquest model per a la nostra pràctica:</p>
 <p><a class="glightbox" href="../img/DBModel.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="DBModel" src="../img/DBModel.png" width="95%" /></a></p>
 <div class="admonition warning">
@@ -2861,7 +2945,79 @@
 <a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="s">&quot;Cliente borrado satisfactoriamente&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">OK</span><span class="p">);</span>
 <a id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="8-exercici-completa-el-servidor">8. Exercici. Completa el servidor</h2>
+<h2 id="8-auditoria-automatica-amb-spring-data-jpa-recomanat">8. Auditoria automàtica amb Spring Data JPA (recomanat)</h2>
+<p>Spring Data JPA ofereix un mecanisme d’<strong>auditoria automàtica</strong> que permet gestionar sense codi manual camps com:</p>
+<ul>
+<li>data de creació</li>
+<li>data d’última modificació</li>
+<li>(opcionalment) usuari que crea o modifica el registre</li>
+</ul>
+<h3 id="81-activar-lauditoria-jpa">8.1. Activar l’auditoria JPA</h3>
+<p>Cal habilitar l’auditoria en una classe de configuració o en la classe principal de l’aplicació:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="nd">@EnableJpaAuditing</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="nd">@SpringBootApplication</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Aplicacio</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="13-funcionament">1.3. Funcionament</h3>
+<ul>
+<li>
+<p><code>@CreatedDate</code>:  </p>
+<ul>
+<li>S’assigna automàticament quan es fa un <strong>INSERT</strong></li>
+<li>No es torna a modificar mai</li>
+</ul>
+</li>
+<li>
+<p><code>@LastModifiedDate</code>: </p>
+<ul>
+<li>S’actualitza automàticament en cada <strong>UPDATE</strong></li>
+</ul>
+</li>
+</ul>
+<p>No cal afegir cap lògica en Controllers, Services, Repositories mi DTO's. Spring Data JPA i Hibernate s’encarreguen de tota la gestió de l’auditoria.</p>
+<h3 id="82-configuracio-de-lentitat">8.2. Configuració de l’entitat</h3>
+<p>L’entitat ha d'utilitzar les anotacions d’auditoria en els atributs:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-20-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-20-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-20-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-20-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-20-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-20-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-20-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-20-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-20-10">10</a></span>
+<span class="normal"><a href="#__codelineno-20-11">11</a></span>
+<span class="normal"><a href="#__codelineno-20-12">12</a></span>
+<span class="normal"><a href="#__codelineno-20-13">13</a></span>
+<span class="normal"><a href="#__codelineno-20-14">14</a></span>
+<span class="normal"><a href="#__codelineno-20-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="nd">@Entity</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Runner</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="w">    </span><span class="nd">@Id</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="w">    </span><span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GenerationType</span><span class="p">.</span><span class="na">IDENTITY</span><span class="p">)</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7"></a>
+<a id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="w">    </span><span class="nd">@CreatedDate</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="w">    </span><span class="nd">@Column</span><span class="p">(</span><span class="n">nullable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="n">updatable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">LocalDateTime</span><span class="w"> </span><span class="n">dataCreacio</span><span class="p">;</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11"></a>
+<a id="__codelineno-20-12" name="__codelineno-20-12"></a><span class="w">    </span><span class="nd">@LastModifiedDate</span>
+<a id="__codelineno-20-13" name="__codelineno-20-13"></a><span class="w">    </span><span class="nd">@Column</span><span class="p">(</span><span class="n">nullable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+<a id="__codelineno-20-14" name="__codelineno-20-14"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">LocalDateTime</span><span class="w"> </span><span class="n">dataModificacio</span><span class="p">;</span>
+<a id="__codelineno-20-15" name="__codelineno-20-15"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Perquè l’auditoria funcione correctament, cal tindre en compte:</p>
+<ul>
+<li>Les operacions han d’executar-se dins d’una <strong>transacció</strong></li>
+<li>No funciona amb consultes d’actualització directa (<code>@Modifying @Query</code>)</li>
+<li>El camp de data de creació ha d’estar marcat amb <code>updatable = false</code></li>
+</ul>
+<h2 id="9-exercici-completa-el-servidor">9. Exercici. Completa el servidor</h2>
 <p>Hem acabat de crear el nostre controlador sobre la classe <code>Cliente</code>, però podem millorar la nostra aplicació afegint més serveis i configuracions al servidor. Aquests conceptes s'estudiaran en les següents seccions.</p>
 <p>Recomanem completar el controlador, serveis i repositoris de <code>Cuenta</code> i <code>Direccion</code> amb operacions per defecte.</p>
 <p>A més, pots afegir opcions per afegir una <code>Cuenta</code> a un <code>Cliente</code> o eliminar-la, i el mateix amb <code>Direccion</code>.</p>
