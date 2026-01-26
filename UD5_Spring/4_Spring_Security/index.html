@@ -2321,11 +2321,13 @@ En afegir-lo al <code>pom.xml</code>, Spring Boot <strong>habilita automàticame
 <h3 id="23-la-classe-securityconfig">2.3. La Classe <code>SecurityConfig</code></h3>
 <p><code>SecurityConfig</code> és la <strong>classe central de configuració de seguretat</strong> d’una aplicació Spring Boot amb Spring Security.<br />
 En aquesta classe es defineix <strong>com i quan s’aplica la seguretat</strong> a les peticions HTTP que arriben a l’API.</p>
-<p>És ací on s’indica:
-  - Quins endpoints estan protegits
-  - Com s’autentiquen les peticions
-  - Com es gestionen els errors de seguretat
-  - Quin mecanisme de seguretat s’utilitza (JWT, OAuth2, etc.)</p>
+<p>És ací on s’indica:</p>
+<ul>
+<li>Quins endpoints estan protegits</li>
+<li>Com s’autentiquen les peticions</li>
+<li>Com es gestionen els errors de seguretat</li>
+<li>Quin mecanisme de seguretat s’utilitza (JWT, OAuth2, etc.)</li>
+</ul>
 <hr />
 <h3 id="231-que-fa-la-classe-securityconfig">2.3.1. Qué fa la classe <code>SecurityConfig</code>?</h3>
 <p>Spring Security funciona mitjançant una <strong>cadena de filtres</strong> que intercepta totes les peticions HTTP.  </p>
@@ -2388,8 +2390,8 @@ En aquesta classe es defineix <strong>com i quan s’aplica la seguretat</strong
 <p>Com podeu veure, hi ha tres seccions en aquest JWT, cadascuna separada per un punt.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-</div>
 <p>La codificació <code>Base64</code> és una manera d'assegurar que les dades no es corrompin, ja que no comprimeixen ni xifren les dades, sinó que simplement les codifiquen d'una manera que la majoria dels sistemes poden entendre. Podeu llegir qualsevol text codificat en Base64 simplement descodificant-lo.</p>
+</div>
 <p>La primera secció del JWT és un <strong>header</strong>, que és una cadena codificada en Base64. Si descodifiqueu el header, es veuria així:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JSON</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
 <span class="normal"><a href="#__codelineno-9-2">2</a></span>
